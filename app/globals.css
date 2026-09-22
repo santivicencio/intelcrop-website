@@ -1,26 +1,102 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/**
+ * CONTRAST RULE — derived from the brand palette, non-negotiable.
+ * Computed against WCAG 2.2 contrast ratios (see docs/DESIGN_SYSTEM.md for the
+ * full table and the script used to derive it):
+ *
+ *   --color-teal   (#12938A) on canopy = 3.31:1, on field = 3.40:1
+ *   --color-gold   (#C99A2E) on canopy = 4.85:1, on field = 2.32:1
+ *
+ * Neither the brand teal nor the brand gold clears 4.5:1 (normal-text AA) on
+ * BOTH surfaces — gold in particular fails even the 3:1 large-text/UI minimum
+ * on field. So:
+ *   - --color-teal / --color-gold are for NON-TEXT or LARGE-TEXT use only
+ *     (rules, data lines, borders, hover fills, headline-sized accents).
+ *   - --color-gold is canopy-only. Never place it on field, in any size.
+ *   - For small text/labels/links that must be teal-family, two derived,
+ *     same-hue tokens exist instead: --color-teal-deep (field only, 6.78:1)
+ *     and --color-teal-bright (canopy only, 4.63:1).
+ *   - Secondary body text: --color-slate on field (5.38:1) or --color-mist on
+ *     canopy (5.79:1) — never the other way around (slate on canopy is 2.09:1).
+ */
+@theme {
+  --color-canopy: #0b3b2e;
+  --color-canopy-soft: #123f32;
+  --color-field: #f5f3ec;
+  --color-field-warm: #eae7dc;
+  --color-teal: #12938a;
+  --color-teal-deep: #0a5f58;
+  --color-teal-bright: #2fafa3;
+  --color-gold: #c99a2e;
+  --color-slate: #5b6660;
+  --color-mist: #a9b3ac;
+
+  /* Vigor data scale (maps/charts only, stress -> vigor) — never decorative. */
+  --color-vigor-stress: #b5553c;
+  --color-vigor-low: #e0b04a;
+  --color-vigor-mid: #9cc56b;
+  --color-vigor-high: #2e8b57;
+
+  --text-display: clamp(3rem, 7vw, 6.5rem);
+  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.75rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --text-body-lg: clamp(1.125rem, 1.4vw, 1.375rem);
+  --text-number-mark: clamp(3rem, 7vw, 6rem);
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --breakpoint-2xl: 100rem;
+
+  --ease-entry: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-field);
+  color: var(--color-canopy);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background-color: var(--color-teal-deep);
+  color: var(--color-field);
+}
+
+/* Focus ring: teal-deep on light surfaces by default (contrast rule above);
+   sections tagged data-surface="dark" flip descendants to teal-bright. */
+:focus-visible {
+  outline: 2px solid var(--color-teal-deep);
+  outline-offset: 3px;
+}
+
+[data-surface='dark'] :focus-visible {
+  outline-color: var(--color-teal-bright);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

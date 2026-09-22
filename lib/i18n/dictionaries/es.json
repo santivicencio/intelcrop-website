@@ -1,0 +1,321 @@
+{
+  "meta": {
+    "title": "IntelCrop — Digitalización | Inteligencia Agrícola | Agrofinanzas",
+    "description": "IntelCrop digitaliza al productor agrícola y conecta su cultivo con crédito, mercados y tecnología mediante datos satelitales e inteligencia artificial.",
+    "ogAlt": "IntelCrop — Digitalización | Inteligencia Agrícola | Agrofinanzas"
+  },
+  "nav": {
+    "comoFunciona": "Cómo funciona",
+    "soluciones": "Soluciones",
+    "paraQuien": "Para quién",
+    "observatorio": "Observatorio",
+    "nosotros": "Nosotros",
+    "hablemos": "Hablemos"
+  },
+  "languageSwitch": {
+    "label": "Idioma",
+    "es": "ES",
+    "en": "EN"
+  },
+  "hero": {
+    "eyebrow": "DIGITALIZACIÓN | INTELIGENCIA AGRÍCOLA | AGROFINANZAS",
+    "headline": "Hacemos visible el valor del campo.",
+    "subcopy": "Digitalizamos al productor agrícola y conectamos su cultivo —con información satelital e inteligencia artificial en tiempo real— con quienes lo financian, lo abastecen, le compran y acompañan su desarrollo.",
+    "ctaPrimary": "Conoce cómo funciona",
+    "ctaSecondary": "Hablemos"
+  },
+  "ecosystem": {
+    "eyebrow": "EL PRODUCTOR AL CENTRO",
+    "heading": "Cuando el productor es visible, todo el ecosistema avanza.",
+    "centerLabel": "El productor y su cultivo",
+    "ringLabel": "Satélite · IA · Clima · Datos de campo",
+    "tapHint": "Toca cada actor para ver su beneficio",
+    "actors": {
+      "financiero": {
+        "name": "Instituciones financieras",
+        "benefit": "Crédito respaldado por el cultivo, no solo por el historial."
+      },
+      "insumos": {
+        "name": "Insumos y distribuidores",
+        "benefit": "Venta con diagnóstico, no con catálogo."
+      },
+      "industria": {
+        "name": "Industria y exportadores",
+        "benefit": "Provisión y trazabilidad de materia prima."
+      },
+      "gobierno": {
+        "name": "Gobierno y aseguradoras",
+        "benefit": "Evidencia de campo para políticas y aseguramiento agrícola."
+      },
+      "multilaterales": {
+        "name": "Multilaterales",
+        "benefit": "Indicadores verificables para programas de desarrollo."
+      },
+      "academia": {
+        "name": "Academia",
+        "benefit": "Datos estandarizados para calibrar modelos y transferir conocimiento."
+      }
+    }
+  },
+  "questions": {
+    "eyebrow": "PREGUNTAS QUE HOY SE RESPONDEN A CIEGAS",
+    "heading": "Cuatro preguntas que el agro aún responde a ciegas.",
+    "todayLabel": "Hoy",
+    "withIntelCropLabel": "Con IntelCrop",
+    "items": [
+      {
+        "question": "¿Dónde está sembrado, qué y desde cuándo?",
+        "today": "Se estima.",
+        "withIntelCrop": "Se mide.",
+        "solutionArea": "digitalizacion"
+      },
+      {
+        "question": "¿Cómo está el cultivo hoy?",
+        "today": "Se sabe cuando el técnico llega.",
+        "withIntelCrop": "Se sabe antes.",
+        "solutionArea": "inteligencia"
+      },
+      {
+        "question": "¿Cuánto va a rendir la cosecha?",
+        "today": "Es una expectativa.",
+        "withIntelCrop": "Es un pronóstico.",
+        "solutionArea": "inteligencia"
+      },
+      {
+        "question": "¿Funcionó el producto o la práctica aplicada?",
+        "today": "Es percepción.",
+        "withIntelCrop": "Es evidencia comparable.",
+        "solutionArea": "inteligencia"
+      }
+    ]
+  },
+  "satellite": {
+    "eyebrow": "DEL SATÉLITE AL LOTE",
+    "heading": "Tecnología global. Decisiones en el lote.",
+    "chains": {
+      "produccion": ["Imagen", "Vigor", "Rendimiento"],
+      "sanidad": ["Señal", "Alerta", "Acción"],
+      "clima": ["Pronóstico", "Riesgo", "Decisión"]
+    },
+    "statsNote": "Cifras de referencia, pendientes de validación.",
+    "stats": [
+      { "value": "200+", "label": "satélites" },
+      { "value": "3×3 m", "label": "resolución" },
+      { "value": "40 años", "label": "de imágenes históricas" },
+      { "value": "170+", "label": "cultivos" },
+      { "value": "24/7", "label": "en la nube" }
+    ],
+    "alertsChannelsNote": "Las alertas llegan al productor por SMS, WhatsApp y correo."
+  },
+  "credit": {
+    "eyebrow": "AGROFINANZAS END-TO-END",
+    "heading": "La calidad de la cartera es la calidad de los cultivos que la respaldan.",
+    "supportingLine": "Medimos el riesgo productivo, no solo el riesgo financiero.",
+    "stages": {
+      "prospeccion": {
+        "name": "Prospección",
+        "description": "Análisis sectorial y perfilamiento del universo de productores."
+      },
+      "originacion": {
+        "name": "Originación",
+        "description": "Validación de siembra y scoring productivo antes de aprobar la línea."
+      },
+      "seguimiento": {
+        "name": "Seguimiento",
+        "description": "Alertas de estrés, sequía o anegamiento sobre los lotes que respaldan la deuda."
+      },
+      "cobranza": {
+        "name": "Provisión y cobranza",
+        "description": "Pronóstico de rendimiento para anticipar el deterioro antes del vencimiento."
+      }
+    }
+  },
+  "solutions": {
+    "eyebrow": "SOLUCIONES",
+    "heading": "Cuatro soluciones. Un mismo productor al centro.",
+    "note": "Cada solución tiene su propia página, con el detalle completo.",
+    "areas": {
+      "digitalizacion": {
+        "name": "Digitalización del productor",
+        "tagline": "El productor, visible.",
+        "items": [
+          "Licencias analíticas",
+          "Georreferenciación y perfilamiento",
+          "Banco de datos estandarizado",
+          "Capacitación continua"
+        ]
+      },
+      "inteligencia": {
+        "name": "Inteligencia agrícola",
+        "tagline": "Del satélite a la decisión en el lote.",
+        "items": [
+          "Producción y rendimiento",
+          "Sanidad",
+          "Clima",
+          "Análisis sectorial y de mercado",
+          "Visualizadores automatizados"
+        ]
+      },
+      "agrofinanzas": {
+        "name": "Agrofinanzas end-to-end",
+        "tagline": "Crédito respaldado por el cultivo.",
+        "items": [
+          "Prospección",
+          "Originación",
+          "Seguimiento",
+          "Provisión y cobranza",
+          "Seguro agrícola y programas públicos"
+        ]
+      },
+      "sostenibilidad": {
+        "name": "Sostenibilidad y trazabilidad",
+        "tagline": "Trazabilidad que abre mercados.",
+        "items": [
+          "Huella de carbono y captura en biomasa",
+          "Deforestación y EUDR",
+          "Agua y suelo",
+          "Impacto y ODS"
+        ]
+      }
+    }
+  },
+  "audience": {
+    "eyebrow": "PARA QUIÉN",
+    "heading": "Un punto de entrada para cada actor del ecosistema.",
+    "blocks": {
+      "productores": {
+        "name": "Productores y asociaciones",
+        "description": "Información para producir mejor, acceder a crédito y llegar a mercados exigentes."
+      },
+      "financiero": {
+        "name": "Instituciones financieras",
+        "description": "Riesgo productivo, originación y seguimiento de cartera con evidencia de campo."
+      },
+      "insumos": {
+        "name": "Insumos y distribución",
+        "description": "Venta direccionada, diagnóstico por lote y desempeño de producto."
+      },
+      "industria": {
+        "name": "Industria y exportación",
+        "description": "Provisión asegurada, proyección de oferta y trazabilidad para mercados exigentes."
+      },
+      "gobierno": {
+        "name": "Gobierno y multilaterales",
+        "description": "Política pública, seguro agrícola y programas con evidencia verificable."
+      },
+      "academia": {
+        "name": "Academia",
+        "description": "Datos estandarizados para calibrar modelos y transferir conocimiento al campo."
+      }
+    }
+  },
+  "sustainability": {
+    "eyebrow": "SOSTENIBILIDAD",
+    "heading": "Sostenibilidad que se mide, se verifica y abre mercados.",
+    "items": [
+      {
+        "name": "Huella de carbono",
+        "description": "Estimación y monitoreo de captura en biomasa por lote y por cartera."
+      },
+      {
+        "name": "Deforestación y EUDR",
+        "description": "Control de polígonos con historial anterior a 2020 para exportaciones a la Unión Europea."
+      },
+      {
+        "name": "Agua y suelo",
+        "description": "Huella hídrica y riego eficiente vinculado a condiciones meteorológicas."
+      },
+      {
+        "name": "Impacto y ODS",
+        "description": "Indicadores y reportes para instituciones financieras, multilaterales y programas de desarrollo."
+      }
+    ],
+    "odsNote": "Alineación con los Objetivos de Desarrollo Sostenible pendiente de confirmación."
+  },
+  "ecuadorData": {
+    "eyebrow": "ECUADOR EN DATOS",
+    "heading": "Un territorio productivo que merece ser visto con precisión.",
+    "statsNote": "Cifras de referencia, pendientes de validación.",
+    "stats": [
+      { "value": "+1,2M", "label": "hectáreas en producción" },
+      { "value": "+800 mil", "label": "productores" }
+    ],
+    "cropsLabel": "Principales cultivos",
+    "crops": ["Cacao", "Maíz", "Arroz", "Palma", "Banano", "Café", "Caña de azúcar"]
+  },
+  "whyIntelCrop": {
+    "statements": [
+      "Tecnología sin productor no genera desarrollo.",
+      "Datos sin estándar no generan confianza.",
+      "Crédito sin información del cultivo es riesgo a ciegas."
+    ],
+    "equationParts": ["PRODUCTOR", "× DATO", "× ECOSISTEMA ="],
+    "equationResult": "DESARROLLO"
+  },
+  "team": {
+    "eyebrow": "EQUIPO Y ALIANZAS",
+    "heading": "Tecnología global. Presencia local.",
+    "body": "IntelCrop integra tecnología global de agricultura de precisión con un equipo local que trabaja en el campo junto al productor, y articula alianzas con instituciones financieras, industria, academia y organismos de desarrollo."
+  },
+  "observatory": {
+    "eyebrow": "OBSERVATORIO",
+    "heading": "Perspectiva agroclimática y sectorial.",
+    "placeholderNote": "Entradas de referencia. Reportes pendientes de publicación.",
+    "items": [
+      {
+        "date": "—",
+        "category": "Riesgo climático",
+        "title": "[Título de reporte pendiente]"
+      },
+      {
+        "date": "—",
+        "category": "Crédito y agricultura",
+        "title": "[Título de reporte pendiente]"
+      },
+      {
+        "date": "—",
+        "category": "Sostenibilidad y EUDR",
+        "title": "[Título de reporte pendiente]"
+      }
+    ]
+  },
+  "finalCta": {
+    "heading": "Hagamos visible tu campo.",
+    "subcopy": "¿Financias, abasteces, compras o acompañas a productores agrícolas? Conversemos.",
+    "whatsappCta": "Soy productor: escríbenos por WhatsApp",
+    "whatsappNote": "Canal directo pendiente de confirmación.",
+    "form": {
+      "nameLabel": "Nombre",
+      "nameError": "Ingresa tu nombre.",
+      "organizationLabel": "Organización",
+      "organizationError": "Ingresa tu organización.",
+      "organizationTypeLabel": "Tipo de organización",
+      "organizationTypeOptions": [
+        "Productor / Asociación",
+        "Institución financiera",
+        "Insumos y distribución",
+        "Industria y exportación",
+        "Gobierno o multilateral",
+        "Academia"
+      ],
+      "emailLabel": "Email",
+      "emailError": "Ingresa un correo electrónico válido.",
+      "needLabel": "¿Qué necesitas resolver?",
+      "needError": "Cuéntanos qué necesitas resolver.",
+      "submitLabel": "Enviar mensaje",
+      "submittingLabel": "Enviando…",
+      "successMessage": "Gracias. Te contactaremos pronto.",
+      "errorMessage": "Ocurrió un error. Intenta nuevamente."
+    }
+  },
+  "footer": {
+    "contactLabel": "Contacto",
+    "legalLabel": "Aviso legal",
+    "privacyLabel": "Privacidad",
+    "copyrightSuffix": "Todos los derechos reservados."
+  },
+  "a11y": {
+    "skipToContent": "Saltar al contenido",
+    "languageSwitcherLabel": "Idioma"
+  }
+}
