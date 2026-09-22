@@ -31,19 +31,19 @@ publishing," and they ship with that caveat visibly attached in the UI
 
 ## Pending decisions / missing inputs
 
-5. **Production domain** (`lib/site-config.ts`) — no domain was specified in
-   the brand brief (unlike Concilium's `conciliumsavc.com`). `intelcrop.com`
-   is a placeholder. Confirm the real domain, update
-   `NEXT_PUBLIC_SITE_URL`, and add the canonical-host redirect to
-   `next.config.ts` (there's a `TODO` comment there marking exactly where).
+5. ~~**Production domain**~~ — confirmed: `intelicrop.com`. `lib/site-config.ts`,
+   `.env.example` and `next.config.ts`'s canonical-host redirect (apex →
+   `www`) all use it now. Still pending: actually registering/connecting it
+   in DNS + Vercel — see `docs/DEPLOYMENT.md`.
 6. **WhatsApp number** (`lib/site-config.ts` → `whatsappNumber`) — currently
    empty. The final CTA's WhatsApp button (`components/sections/FinalCtaSection.tsx`)
    correctly degrades to a disabled `#` link with a "pendiente de
    confirmación" note when this is unset. Fill it in once the producer-facing
    number exists.
-7. **Contact email and LinkedIn URL** (`lib/site-config.ts`) — placeholders
-   (`contacto@intelcrop.com`, a placeholder LinkedIn company URL). Confirm
-   before launch.
+7. **Contact email and LinkedIn URL** (`lib/site-config.ts`) — the contact
+   email now uses the confirmed domain (`contacto@intelicrop.com`), but
+   confirm that mailbox actually exists before publishing it. LinkedIn URL
+   is still a placeholder company URL — confirm before launch.
 8. **Leadership and alliance logos** (`components/sections/TeamSection.tsx`)
    — the brief explicitly says "Present leadership selectively (names and
    roles to be confirmed)" and "Show client and partner logos only with

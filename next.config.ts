@@ -16,13 +16,22 @@ const CONTENT_SECURITY_POLICY = [
   "form-action 'self'",
 ].join('; ')
 
-// TODO: no production domain has been confirmed yet (see docs/CONTENT_TODO.md).
-// Once it is, add a `redirects()` entry here forcing the canonical host, the same
-// way Concilium's next.config.ts does it — a `has: [{ type: 'host', value: '<apex>' }]`
-// rule redirecting to `https://www.<domain>/:path*`.
+const APEX_HOST = 'intelicrop.com'
+const CANONICAL_HOST = 'www.intelicrop.com'
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
+
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: APEX_HOST }],
+        destination: `https://${CANONICAL_HOST}/:path*`,
+        permanent: true,
+      },
+    ]
+  },
 
   async headers() {
     return [
