@@ -1,4 +1,6 @@
-const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+// `||` (not `??`) so a var that's set-but-empty in a deploy platform's dashboard
+// falls back safely too, instead of producing an unparseable empty URL at build time.
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'http://localhost:3000'
 
 /** Strip a trailing slash so every consumer can safely append a leading-slash path. */
 export const siteUrl = rawSiteUrl.replace(/\/$/, '')
