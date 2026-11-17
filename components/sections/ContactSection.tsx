@@ -1,20 +1,38 @@
 import { Mail, Phone, Globe } from 'lucide-react'
 import type { Dictionary } from '@/lib/i18n/types'
+import type { Locale } from '@/lib/i18n/config'
+import { getServices } from '@/content/services'
 import { siteConfig, telLink } from '@/lib/site-config'
 import { Section } from '@/components/layout/Section'
 import { Kicker } from '@/components/ui/Kicker'
 import { ContactForm } from '@/components/ui/ContactForm'
 import { TealOcreStripe } from '@/components/decor/TealOcreStripe'
 
-export function ContactSection({ dictionary }: { dictionary: Dictionary }) {
+export function ContactSection({
+  locale,
+  dictionary,
+  heading,
+  defaultInterest,
+}: {
+  locale: Locale
+  dictionary: Dictionary
+  /** Overrides the default heading (service pages). */
+  heading?: string
+  defaultInterest?: string
+}) {
   const { contact } = dictionary
+  const interestOptions = [
+    contact.form.interestDemo,
+    ...getServices(locale).map((service) => service.name),
+    contact.form.interestOther,
+  ]
   return (
     <Section id="contacto" surface="white" ariaLabelledBy="contact-heading">
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.4fr] lg:gap-16">
         <div>
           <Kicker>{contact.kicker}</Kicker>
           <h2 id="contact-heading" className="mt-4 text-h2 leading-[1.12] font-extrabold">
-            {contact.heading}
+            {heading ?? contact.heading}
           </h2>
           <TealOcreStripe className="mt-6" />
           <p className="mt-6 text-lg">{contact.subcopy}</p>
@@ -63,7 +81,11 @@ export function ContactSection({ dictionary }: { dictionary: Dictionary }) {
         </div>
 
         <div className="rounded-[var(--radius-card)] bg-crema p-6 md:p-10">
-          <ContactForm dictionary={dictionary} />
+          <ContactForm
+            dictionary={dictionary}
+            interestOptions={interestOptions}
+            defaultInterest={defaultInterest}
+          />
         </div>
       </div>
     </Section>

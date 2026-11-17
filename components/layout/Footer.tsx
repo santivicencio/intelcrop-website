@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { Mail, Phone, Globe } from 'lucide-react'
+import { getServices, servicePath } from '@/content/services'
 import { navigation, type NavKey } from '@/content/site'
 import { siteConfig, telLink } from '@/lib/site-config'
 import type { Locale } from '@/lib/i18n/config'
@@ -17,9 +19,8 @@ export function Footer({
   const year = new Date().getFullYear()
 
   const navLabels: Record<NavKey, string> = {
-    soluciones: dictionary.nav.soluciones,
     paraIfis: dictionary.nav.paraIfis,
-    agroindustria: dictionary.nav.agroindustria,
+    actores: dictionary.nav.actores,
     sostenibilidad: dictionary.nav.sostenibilidad,
     nosotros: dictionary.nav.nosotros,
   }
@@ -31,7 +32,7 @@ export function Footer({
     >
       <ContourLines tone="dark" className="-top-1/2 right-[-20%] h-[160%] w-[80%]" />
       <div className="mx-auto w-full max-w-[1440px] px-5 pt-14 pb-10 md:px-10 lg:px-20">
-        <div className="mx-auto grid max-w-[1280px] gap-12 md:grid-cols-[1.3fr_1fr_1fr]">
+        <div className="mx-auto grid max-w-[1280px] gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1.2fr_0.8fr_1fr]">
           <div>
             <Logo variant="negativo" height={40} alt="InteliCrop" />
             <p className="mt-6 text-xl font-bold text-white">
@@ -41,8 +42,29 @@ export function Footer({
             <p className="mt-6 max-w-sm text-sm">{dictionary.about.cropin}</p>
           </div>
 
+          <div>
+            <p className="text-xs font-bold tracking-[0.3em] text-ocre-sol uppercase">
+              {dictionary.nav.soluciones}
+            </p>
+            <ul className="mt-3 flex flex-col">
+              {getServices(locale).map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={servicePath(locale, service.slug)}
+                    className="inline-flex min-h-10 items-center hover:text-white"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <nav aria-label={dictionary.a11y.footerNav}>
-            <ul className="flex flex-col gap-1">
+            <p className="text-xs font-bold tracking-[0.3em] text-ocre-sol uppercase">
+              InteliCrop
+            </p>
+            <ul className="mt-3 flex flex-col">
               {navigation.map((item) => (
                 <li key={item.key}>
                   <a

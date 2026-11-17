@@ -7,6 +7,7 @@ import { locales, isLocale } from '@/lib/i18n/config'
 import { getDictionary } from '@/lib/i18n/get-dictionary'
 import { absoluteUrl, siteConfig, siteUrl } from '@/lib/site-config'
 import { Header } from '@/components/layout/Header'
+import { getServices } from '@/content/services'
 import { Footer } from '@/components/layout/Footer'
 import '../globals.css'
 
@@ -93,7 +94,7 @@ export default async function RootLayout({
     telephone: siteConfig.phones[0],
     slogan: siteConfig.tagline,
     areaServed: ['Ecuador', 'Latin America'],
-    knowsAbout: dictionary.solutions.items.map((item) => item.name),
+    knowsAbout: getServices(locale).map((service) => service.name),
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
@@ -120,7 +121,16 @@ export default async function RootLayout({
           >
             {dictionary.a11y.skipToContent}
           </a>
-          <Header locale={locale} dictionary={dictionary} />
+          <Header
+            locale={locale}
+            dictionary={dictionary}
+            services={getServices(locale).map(({ slug, name, short, icon }) => ({
+              slug,
+              name,
+              short,
+              icon,
+            }))}
+          />
           <main id="main-content">{children}</main>
           <Footer locale={locale} dictionary={dictionary} />
         </LazyMotion>

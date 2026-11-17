@@ -1,12 +1,13 @@
 import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 
-type Tone = 'light' | 'dark' | 'solid'
+type Tone = 'light' | 'dark' | 'solid' | 'tile'
 
 /**
  * Manual §2.4: Lucide icon (2px stroke, round caps) inside a pointy-top hexagon.
  * light = Teal outline, white fill · dark = Teal Luz outline, Tinta fill ·
- * solid = Teal Accesible fill with white icon (summary deck's portfolio tiles).
+ * solid = Teal Accesible fill with white icon (summary deck's portfolio tiles) ·
+ * tile = follows the --tile-hex-* vars of a responsive solution tile.
  */
 const toneStyles: Record<Tone, { stroke: string; fill: string; icon: string }> = {
   light: { stroke: 'var(--color-teal)', fill: '#ffffff', icon: 'text-teal-accesible' },
@@ -19,6 +20,11 @@ const toneStyles: Record<Tone, { stroke: string; fill: string; icon: string }> =
     stroke: 'var(--color-teal-accesible)',
     fill: 'var(--color-teal-accesible)',
     icon: 'text-white',
+  },
+  tile: {
+    stroke: 'var(--tile-hex-stroke)',
+    fill: 'var(--tile-hex-fill)',
+    icon: 'text-[var(--tile-hex-icon)]',
   },
 }
 

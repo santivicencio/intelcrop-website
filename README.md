@@ -49,8 +49,16 @@ Every message is addressed to **comercial@intelicrop.com** (`lib/site-config.ts`
 
 ## Scope
 
-Single-page homepage following the manual's site architecture (§3.6): hero,
-key figures, context, how it works, solutions, for lenders (credit process,
-Agroclimatic Score, zonal climate risk, Basel), El Niño band, agribusiness and
-actors, Ecuador market data, sustainability, about, contact. Internal pages and
-legal/privacy pages are not built yet — see `docs/CONTENT_TODO.md`.
+Apple-style structure: a homepage that presents the eight solutions as large
+tiles, and one page per solution under `/[locale]/soluciones/[slug]` (content in
+`content/services/{es,en}.ts`, template in `components/service/`). The header's
+"Soluciones" menu lists every solution. Homepage: hero, key figures, solutions,
+context, interactive value-chain map (actors and pain points), how it works,
+credit process, sustainability, about, contact. Legal/privacy pages are not built
+yet — see `docs/CONTENT_TODO.md`.
+
+### Adding or editing a solution
+
+Edit the entry in both `content/services/es.ts` and `content/services/en.ts`. To
+add one, append its slug to `serviceSlugs` in `content/services/types.ts`; the
+page, sitemap, menu, footer and contact-form options pick it up automatically.

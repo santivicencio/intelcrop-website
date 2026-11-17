@@ -1,39 +1,29 @@
-import {
-  ClipboardCheck,
-  Smartphone,
-  Activity,
-  CloudSun,
-  Presentation,
-  ChartColumnIncreasing,
-  Scan,
-  Leaf,
-  Droplets,
-  Bug,
-  TrendingUp,
-  Wheat,
-  type LucideIcon,
-} from 'lucide-react'
+import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 import type { Dictionary } from '@/lib/i18n/types'
-import { contactHref } from '@/content/site'
+import type { Locale } from '@/lib/i18n/config'
+import { getServices, servicePath } from '@/content/services'
 import { Section } from '@/components/layout/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { HexIcon } from '@/components/ui/HexIcon'
-import { Kicker } from '@/components/ui/Kicker'
-import { ButtonLink } from '@/components/ui/Button'
+import { icons } from '@/components/ui/icons'
+import { ContourLines } from '@/components/decor/ContourLines'
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll'
 
-const SOLUTION_ICONS: LucideIcon[] = [
-  ClipboardCheck,
-  Smartphone,
-  Activity,
-  CloudSun,
-  Presentation,
-  ChartColumnIncreasing,
-]
-const MODEL_ICONS: LucideIcon[] = [Scan, Leaf, Droplets, Bug, Wheat, TrendingUp]
-
-export function SolutionsSection({ dictionary }: { dictionary: Dictionary }) {
+/**
+ * Apple-style product grid: one large tile per solution, alternating dark and
+ * light in a checkerboard, each leading to its own page.
+ */
+export function SolutionsSection({
+  locale,
+  dictionary,
+}: {
+  locale: Locale
+  dictionary: Dictionary
+}) {
   const { solutions } = dictionary
+  const services = getServices(locale)
+
   return (
     <Section id="soluciones" surface="crema" ariaLabelledBy="solutions-heading">
       <SectionHeading
@@ -45,51 +35,58 @@ export function SolutionsSection({ dictionary }: { dictionary: Dictionary }) {
         <span className="text-teal-titulo">{solutions.headingAccent}</span>
       </SectionHeading>
 
-      <ol className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {solutions.items.map((item, index) => (
-          <RevealOnScroll
-            as="li"
-            key={item.name}
-            delay={(index % 3) * 0.06}
-            className="flex flex-col rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)]"
-          >
-            <div className="flex items-start justify-between">
-              <HexIcon icon={SOLUTION_ICONS[index]} />
-              <span className="font-mono text-2xl font-bold text-ocre-accesible">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-            </div>
-            <h3 className="mt-6 text-h4 font-bold">{item.name}</h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-gris-texto">
-              {item.body}
-            </p>
-          </RevealOnScroll>
-        ))}
-      </ol>
-
-      <div className="mt-20 grid gap-10 lg:grid-cols-[0.9fr_1.4fr] lg:gap-14">
-        <div>
-          <Kicker>{solutions.modelsKicker}</Kicker>
-          <h3 className="mt-4 text-h3 leading-tight font-extrabold">
-            {solutions.modelsHeading}
-          </h3>
-          <p className="mt-4 text-gris-texto italic">{solutions.modelsNote}</p>
-          <ButtonLink href={contactHref} className="mt-8">
-            {solutions.cta}
-          </ButtonLink>
-        </div>
-        <ul className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
-          {solutions.models.map((model, index) => (
-            <li key={model.name} className="flex gap-4">
-              <HexIcon icon={MODEL_ICONS[index]} tone="solid" size={44} />
-              <div>
-                <p className="font-bold text-tinta">{model.name}</p>
-                <p className="mt-1 text-sm text-gris-texto">{model.body}</p>
+      <ul className="mt-14 grid gap-4 md:grid-cols-2">
+        {services.map((service, index) => {
+          const mobileDark = index % 2 === 0
+          const desktopDark =
+            Math.floor(index / 2) % 2 === 0 ? index % 2 === 0 : index % 2 === 1
+          const Icon = icons[service.icon]
+          return (
+            <RevealOnScroll as="li" key={service.slug} delay={(index % 2) * 0.06}>
+              <div
+                data-tile
+                data-mobile={mobileDark ? 'dark' : 'light'}
+                data-desktop={desktopDark ? 'dark' : 'light'}
+                className="group relative isolate flex h-full min-h-[380px] flex-col items-center overflow-hidden rounded-[var(--radius-card)] bg-[var(--tile-bg)] px-8 pt-12 pb-10 text-center shadow-[var(--tile-shadow)] md:min-h-[440px]"
+              >
+                <div className="absolute inset-0 -z-10 opacity-[var(--tile-decor)]">
+                  <ContourLines tone="dark" className="inset-0 h-full w-full" />
+                </div>
+                <p className="font-mono text-sm font-bold text-[var(--tile-num)]">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <h3 className="mt-3 text-[clamp(1.75rem,3vw,2.5rem)] leading-tight font-extrabold tracking-[-0.02em]">
+                  {service.name}
+                </h3>
+                <p className="mt-3 max-w-md text-lg text-[var(--tile-muted)]">
+                  {service.short}
+                </p>
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[15px] font-bold">
+                  <Link
+                    href={servicePath(locale, service.slug)}
+                    className="inline-flex min-h-11 items-center gap-1 text-[var(--tile-link)] hover:underline"
+                  >
+                    {solutions.learnMore}
+                    <span className="sr-only">: {service.name}</span>
+                    <ChevronRight aria-hidden="true" size={18} />
+                  </Link>
+                  <Link
+                    href={`${servicePath(locale, service.slug)}#contacto`}
+                    className="inline-flex min-h-11 items-center gap-1 text-[var(--tile-link-2)] hover:underline"
+                  >
+                    {solutions.requestDemo}
+                    <span className="sr-only">: {service.name}</span>
+                    <ChevronRight aria-hidden="true" size={18} />
+                  </Link>
+                </div>
+                <div className="mt-auto pt-10 transition-transform duration-500 ease-[var(--ease-entry)] group-hover:-translate-y-1">
+                  <HexIcon icon={Icon} tone="tile" size={112} />
+                </div>
               </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+            </RevealOnScroll>
+          )
+        })}
+      </ul>
     </Section>
   )
 }

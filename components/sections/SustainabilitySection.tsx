@@ -9,7 +9,8 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import type { Dictionary } from '@/lib/i18n/types'
-import { contactHref } from '@/content/site'
+import type { Locale } from '@/lib/i18n/config'
+import { servicePath } from '@/content/services'
 import { Section } from '@/components/layout/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { HexIcon } from '@/components/ui/HexIcon'
@@ -26,7 +27,13 @@ const PRACTICE_ICONS: LucideIcon[] = [
   FlaskConical,
 ]
 
-export function SustainabilitySection({ dictionary }: { dictionary: Dictionary }) {
+export function SustainabilitySection({
+  locale,
+  dictionary,
+}: {
+  locale: Locale
+  dictionary: Dictionary
+}) {
   const { sustainability } = dictionary
   return (
     <Section id="sostenibilidad" surface="menta" ariaLabelledBy="sustainability-heading">
@@ -70,7 +77,11 @@ export function SustainabilitySection({ dictionary }: { dictionary: Dictionary }
           <p className="mt-8 border-t border-white/10 pt-6 text-[15px]">
             {sustainability.eudr}
           </p>
-          <ButtonLink href={contactHref} variant="accent" className="mt-8 self-start">
+          <ButtonLink
+            href={servicePath(locale, 'sostenibilidad-eudr')}
+            variant="accent"
+            className="mt-8 self-start"
+          >
             {sustainability.cta}
           </ButtonLink>
         </div>

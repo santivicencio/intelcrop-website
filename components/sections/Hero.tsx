@@ -1,6 +1,5 @@
 import { CircleCheck } from 'lucide-react'
 import type { Dictionary } from '@/lib/i18n/types'
-import { contactHref } from '@/content/site'
 import { Container } from '@/components/layout/Container'
 import { Kicker } from '@/components/ui/Kicker'
 import { ButtonLink } from '@/components/ui/Button'
@@ -32,7 +31,7 @@ export function Hero({ dictionary }: { dictionary: Dictionary }) {
               {hero.subcopy}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={contactHref}>{hero.ctaPrimary}</ButtonLink>
+              <ButtonLink href="#soluciones">{hero.ctaPrimary}</ButtonLink>
               <ButtonLink href="#como-funciona" variant="secondary">
                 {hero.ctaSecondary}
               </ButtonLink>

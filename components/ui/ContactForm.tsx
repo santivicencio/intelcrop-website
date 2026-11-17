@@ -21,13 +21,21 @@ const FIELD_CLASS =
  * - Without it, it opens the visitor's email app with the message pre-filled and
  *   addressed to that inbox — never a fake "sent" confirmation.
  */
-export function ContactForm({ dictionary }: { dictionary: Dictionary }) {
+export function ContactForm({
+  dictionary,
+  interestOptions,
+  defaultInterest,
+}: {
+  dictionary: Dictionary
+  interestOptions: string[]
+  defaultInterest?: string
+}) {
   const { form } = dictionary.contact
   const initialValues = {
     name: '',
     organization: '',
     organizationType: form.organizationTypeOptions[0] ?? '',
-    interest: form.interestOptions[0] ?? '',
+    interest: defaultInterest ?? interestOptions[0] ?? '',
     email: '',
     phone: '',
     message: '',
@@ -149,7 +157,7 @@ export function ContactForm({ dictionary }: { dictionary: Dictionary }) {
         id="interest"
         label={form.interestLabel}
         value={values.interest}
-        options={form.interestOptions}
+        options={interestOptions}
         onChange={(value) => updateField('interest', value)}
       />
       <TextField

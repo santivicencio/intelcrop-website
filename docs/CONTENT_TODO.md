@@ -26,10 +26,13 @@ What is still open:
    there is a login URL.
 8. **Legal / privacy pages** — not built. The form shows a one-line privacy note.
 
-## Figures to keep current
+## To verify before publishing
 
-- Ecuador agri portfolio and delinquency (SB/SEPS, jul. 2026) — refresh monthly or
-  quarterly in `lib/i18n/dictionaries/{es,en}.json` → `ecuador.stats` and
-  `actors.items[1].pain`.
-- Crop hectares (MAG) — `ecuador.crops`.
-- El Niño 2026–27 band copy — revisit once the event ends.
+- **EUDR timeline** (`content/services/*.ts` → `sostenibilidad-eudr.timeline`) —
+  copied from the Summary 2026 deck, which lists May 2023 for both adoption and
+  entry into force, December 2025 for large companies and June 2026 for SMEs. The
+  EU has postponed the application dates more than once; confirm the current
+  dates before publishing.
+- **Product screenshots** — the summary includes CROPIN platform screenshots
+  (monitoring, disease alerts, sustainability, map view). They were not added;
+  supply high-resolution images if they should appear on the solution pages.

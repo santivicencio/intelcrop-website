@@ -129,3 +129,69 @@ h4 {
     scroll-behavior: auto !important;
   }
 }
+
+/*
+ * Solution tiles: alternate dark/light one by one on mobile (single column) and
+ * as a checkerboard from md up (two columns). Tile children read these vars.
+ */
+[data-tile] {
+  --tile-bg: #ffffff;
+  --tile-fg: var(--color-tinta);
+  --tile-muted: var(--color-gris-texto);
+  --tile-link: var(--color-teal-accesible);
+  --tile-link-2: var(--color-tinta);
+  --tile-num: var(--color-ocre-accesible);
+  --tile-hex-fill: #ffffff;
+  --tile-hex-stroke: var(--color-teal);
+  --tile-hex-icon: var(--color-teal-accesible);
+  --tile-decor: 0;
+  --tile-shadow: var(--shadow-card);
+}
+
+[data-tile][data-mobile='dark'] {
+  --tile-bg: var(--color-tinta);
+  --tile-fg: #ffffff;
+  --tile-muted: var(--color-menta);
+  --tile-link: var(--color-teal-luz);
+  --tile-link-2: #ffffff;
+  --tile-num: var(--color-ocre-sol);
+  --tile-hex-fill: var(--color-tinta);
+  --tile-hex-stroke: var(--color-teal-luz);
+  --tile-hex-icon: var(--color-teal-luz);
+  --tile-decor: 1;
+  --tile-shadow: none;
+}
+
+@media (min-width: 48rem) {
+  [data-tile][data-desktop='light'] {
+    --tile-bg: #ffffff;
+    --tile-fg: var(--color-tinta);
+    --tile-muted: var(--color-gris-texto);
+    --tile-link: var(--color-teal-accesible);
+    --tile-link-2: var(--color-tinta);
+    --tile-num: var(--color-ocre-accesible);
+    --tile-hex-fill: #ffffff;
+    --tile-hex-stroke: var(--color-teal);
+    --tile-hex-icon: var(--color-teal-accesible);
+    --tile-decor: 0;
+    --tile-shadow: var(--shadow-card);
+  }
+
+  [data-tile][data-desktop='dark'] {
+    --tile-bg: var(--color-tinta);
+    --tile-fg: #ffffff;
+    --tile-muted: var(--color-menta);
+    --tile-link: var(--color-teal-luz);
+    --tile-link-2: #ffffff;
+    --tile-num: var(--color-ocre-sol);
+    --tile-hex-fill: var(--color-tinta);
+    --tile-hex-stroke: var(--color-teal-luz);
+    --tile-hex-icon: var(--color-teal-luz);
+    --tile-decor: 1;
+    --tile-shadow: none;
+  }
+}
+
+[data-tile] h3 {
+  color: var(--tile-fg);
+}
