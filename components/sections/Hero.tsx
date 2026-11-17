@@ -1,40 +1,52 @@
+import { CircleCheck } from 'lucide-react'
 import type { Dictionary } from '@/lib/i18n/types'
+import { contactHref } from '@/content/site'
 import { Container } from '@/components/layout/Container'
-import { Label } from '@/components/ui/Label'
-import { Button, TextLink } from '@/components/ui/Button'
-import { HeroFieldGrid } from '@/components/motion/HeroFieldGrid'
+import { Kicker } from '@/components/ui/Kicker'
+import { ButtonLink } from '@/components/ui/Button'
+import { ContourLines } from '@/components/decor/ContourLines'
+import { LandscapeIllustration } from '@/components/decor/LandscapeIllustration'
+import { TealOcreStripe } from '@/components/decor/TealOcreStripe'
 
 export function Hero({ dictionary }: { dictionary: Dictionary }) {
+  const { hero } = dictionary
   return (
     <section
-      data-surface="dark"
-      className="relative flex min-h-[90vh] items-center overflow-hidden bg-canopy text-field"
+      aria-labelledby="hero-heading"
+      className="relative isolate overflow-hidden bg-crema pt-28 md:pt-32"
     >
-      <div className="absolute inset-0 opacity-20 lg:hidden">
-        <HeroFieldGrid className="h-full w-full" />
-      </div>
-
-      <Container className="relative flex flex-col items-start gap-8 pt-24 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
-        <div className="max-w-2xl">
-          <Label as="p" className="mb-6 text-teal-bright">
-            {dictionary.hero.eyebrow}
-          </Label>
-          <h1 className="text-display leading-[1.05] font-semibold tracking-[-0.03em] text-field">
-            {dictionary.hero.headline}
-          </h1>
-          <p className="text-body-lg mt-8 max-w-[52ch] leading-[1.5] text-mist">
-            {dictionary.hero.subcopy}
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-8">
-            <Button href="#como-funciona">{dictionary.hero.ctaPrimary}</Button>
-            <TextLink href="#final-cta" className="text-field decoration-teal-bright">
-              {dictionary.hero.ctaSecondary}
-            </TextLink>
+      <ContourLines className="top-[-30%] left-[-20%] h-[140%] w-[90%]" />
+      <Container>
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-6">
+          <div className="pb-4 lg:pb-20">
+            <Kicker>{hero.kicker}</Kicker>
+            <h1
+              id="hero-heading"
+              className="mt-5 text-display leading-[1.04] font-extrabold tracking-[-0.025em]"
+            >
+              {hero.headlineStart}{' '}
+              <span className="text-teal-titulo">{hero.headlineAccent}</span>
+            </h1>
+            <TealOcreStripe className="mt-7" />
+            <p className="mt-7 max-w-xl text-lg leading-relaxed md:text-xl">
+              {hero.subcopy}
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={contactHref}>{hero.ctaPrimary}</ButtonLink>
+              <ButtonLink href="#como-funciona" variant="secondary">
+                {hero.ctaSecondary}
+              </ButtonLink>
+            </div>
+            <p className="mt-8 flex items-center gap-2 text-sm font-semibold text-gris-texto">
+              <CircleCheck
+                aria-hidden="true"
+                size={18}
+                className="shrink-0 text-teal-accesible"
+              />
+              {hero.cropin}
+            </p>
           </div>
-        </div>
-
-        <div className="hidden h-[420px] w-full max-w-md shrink-0 lg:block">
-          <HeroFieldGrid className="h-full w-full" />
+          <LandscapeIllustration className="self-end" />
         </div>
       </Container>
     </section>

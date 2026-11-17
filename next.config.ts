@@ -1,19 +1,31 @@
 import type { NextConfig } from 'next'
 
-// No third-party scripts, styles, fonts or embeds are loaded anywhere on this site
-// (next/font self-hosts Manrope and IBM Plex Mono, ImageResponse renders OG/icons
-// server-side), so the CSP can stay this tight. 'unsafe-inline' on script/style is
-// required by Next's own hydration and inlined critical CSS.
+// No third-party scripts, styles, fonts or embeds are loaded (next/font self-hosts
+// Manrope and JetBrains Mono; ImageResponse renders OG images server-side), so the
+// CSP stays tight. The one exception is the contact form's optional endpoint
+// (NEXT_PUBLIC_CONTACT_FORM_ENDPOINT, inlined at build time): its origin is added
+// to connect-src so the browser may POST to it. 'unsafe-inline' on script/style
+// is required by Next's own hydration and inlined critical CSS.
+function contactFormOrigin(): string {
+  const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT?.trim()
+  if (!endpoint) return ''
+  try {
+    return new URL(endpoint).origin
+  } catch {
+    return ''
+  }
+}
+
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
+  "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  "connect-src 'self'",
+  `connect-src 'self' ${contactFormOrigin()}`.trim(),
   "frame-ancestors 'self'",
   "base-uri 'self'",
-  "form-action 'self'",
+  "form-action 'self' mailto:",
 ].join('; ')
 
 const APEX_HOST = 'intelicrop.com'
@@ -21,6 +33,10 @@ const CANONICAL_HOST = 'www.intelicrop.com'
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
+
+  images: {
+    qualities: [75],
+  },
 
   async redirects() {
     return [

@@ -1,7 +1,11 @@
+import { Mail, Phone, Globe } from 'lucide-react'
 import { navigation, type NavKey } from '@/content/site'
-import { siteConfig } from '@/lib/site-config'
+import { siteConfig, telLink } from '@/lib/site-config'
 import type { Locale } from '@/lib/i18n/config'
 import type { Dictionary } from '@/lib/i18n/types'
+import { Logo } from '@/components/ui/Logo'
+import { TerritoryLayers } from '@/components/decor/TerritoryLayers'
+import { ContourLines } from '@/components/decor/ContourLines'
 
 export function Footer({
   locale,
@@ -13,67 +17,80 @@ export function Footer({
   const year = new Date().getFullYear()
 
   const navLabels: Record<NavKey, string> = {
-    comoFunciona: dictionary.nav.comoFunciona,
     soluciones: dictionary.nav.soluciones,
-    paraQuien: dictionary.nav.paraQuien,
-    observatorio: dictionary.nav.observatorio,
+    paraIfis: dictionary.nav.paraIfis,
+    agroindustria: dictionary.nav.agroindustria,
+    sostenibilidad: dictionary.nav.sostenibilidad,
     nosotros: dictionary.nav.nosotros,
   }
 
   return (
-    <footer data-surface="dark" className="bg-canopy text-field">
-      <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-8 px-5 py-16 md:px-12 lg:px-20 2xl:px-[120px]">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <footer
+      data-surface="dark"
+      className="relative isolate overflow-hidden bg-tinta text-menta"
+    >
+      <ContourLines tone="dark" className="-top-1/2 right-[-20%] h-[160%] w-[80%]" />
+      <div className="mx-auto w-full max-w-[1440px] px-5 pt-14 pb-10 md:px-10 lg:px-20">
+        <div className="mx-auto grid max-w-[1280px] gap-12 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
-            <p className="text-sm font-semibold tracking-[0.04em] text-field">
-              IntelCrop
+            <Logo variant="negativo" height={40} alt="InteliCrop" />
+            <p className="mt-6 text-xl font-bold text-white">
+              <span className="text-ocre-sol">AI</span> {dictionary.footer.brandLineRest}
             </p>
-            <p className="mt-1 text-xs text-mist">{siteConfig.descriptor}</p>
+            <p className="mt-1 text-teal-luz">{dictionary.footer.tagline}</p>
+            <p className="mt-6 max-w-sm text-sm">{dictionary.about.cropin}</p>
           </div>
-          <nav
-            aria-label="Footer"
-            className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-mist"
-          >
-            {navigation.map((item) => (
-              <a
-                key={item.key}
-                href={item.href}
-                className="min-h-11 py-2 hover:text-field"
-              >
-                {navLabels[item.key]}
-              </a>
-            ))}
-            <a
-              href={`mailto:${siteConfig.contactEmail}`}
-              className="min-h-11 py-2 hover:text-field"
-            >
-              {siteConfig.contactEmail}
-            </a>
-            <a
-              href={siteConfig.linkedinUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="min-h-11 py-2 hover:text-field"
-            >
-              LinkedIn
-            </a>
+
+          <nav aria-label={dictionary.a11y.footerNav}>
+            <ul className="flex flex-col gap-1">
+              {navigation.map((item) => (
+                <li key={item.key}>
+                  <a
+                    href={`/${locale}${item.href}`}
+                    className="inline-flex min-h-11 items-center hover:text-white"
+                  >
+                    {navLabels[item.key]}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </nav>
+
+          <ul className="flex flex-col gap-1 text-sm">
+            <li>
+              <a
+                href={`mailto:${siteConfig.contactEmail}`}
+                className="inline-flex min-h-11 items-center gap-3 font-semibold text-white hover:text-teal-luz"
+              >
+                <Mail aria-hidden="true" size={18} className="text-teal-luz" />
+                {siteConfig.contactEmail}
+              </a>
+            </li>
+            {siteConfig.phones.map((phone) => (
+              <li key={phone}>
+                <a
+                  href={telLink(phone)}
+                  className="inline-flex min-h-11 items-center gap-3 tabular-nums hover:text-white"
+                >
+                  <Phone aria-hidden="true" size={18} className="text-teal-luz" />
+                  {phone}
+                </a>
+              </li>
+            ))}
+            <li className="inline-flex min-h-11 items-center gap-3">
+              <Globe aria-hidden="true" size={18} className="text-teal-luz" />
+              {siteConfig.displayUrl}
+            </li>
+          </ul>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-canopy-soft pt-6 text-xs text-mist md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto mt-12 max-w-[1280px] border-t border-white/10 pt-6 text-sm">
           <p>
-            © {year} {siteConfig.legalName}. {dictionary.footer.copyrightSuffix}
+            © {year} {siteConfig.legalName}. {dictionary.footer.rights}
           </p>
-          <div className="flex gap-6">
-            <a href={`/${locale}/legal`} className="min-h-11 py-2 hover:text-field">
-              {dictionary.footer.legalLabel}
-            </a>
-            <a href={`/${locale}/privacy`} className="min-h-11 py-2 hover:text-field">
-              {dictionary.footer.privacyLabel}
-            </a>
-          </div>
         </div>
       </div>
+      <TerritoryLayers />
     </footer>
   )
 }

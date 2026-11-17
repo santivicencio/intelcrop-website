@@ -3,11 +3,13 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { navigation, type NavKey } from '@/content/site'
+import { Menu, X } from 'lucide-react'
+import { contactHref, navigation, type NavKey } from '@/content/site'
 import { locales, type Locale } from '@/lib/i18n/config'
 import type { Dictionary } from '@/lib/i18n/types'
 import { cn } from '@/lib/utils/cn'
-import { TextLink } from '@/components/ui/Button'
+import { Logo } from '@/components/ui/Logo'
+import { ButtonLink } from '@/components/ui/Button'
 
 export function Header({
   locale,
@@ -21,7 +23,7 @@ export function Header({
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 80)
+      setScrolled(window.scrollY > 24)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -29,80 +31,68 @@ export function Header({
   }, [])
 
   const navLabels: Record<NavKey, string> = {
-    comoFunciona: dictionary.nav.comoFunciona,
     soluciones: dictionary.nav.soluciones,
-    paraQuien: dictionary.nav.paraQuien,
-    observatorio: dictionary.nav.observatorio,
+    paraIfis: dictionary.nav.paraIfis,
+    agroindustria: dictionary.nav.agroindustria,
+    sostenibilidad: dictionary.nav.sostenibilidad,
     nosotros: dictionary.nav.nosotros,
   }
 
   return (
     <header
-      data-surface="dark"
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-colors duration-200 ease-[var(--ease-entry)]',
-        scrolled || menuOpen ? 'bg-canopy' : 'bg-transparent'
+        'fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow] duration-200 ease-[var(--ease-entry)]',
+        scrolled || menuOpen
+          ? 'border-borde/60 bg-crema/95 shadow-[0_4px_20px_rgba(11,59,69,0.06)] backdrop-blur'
+          : 'border-transparent bg-crema/0'
       )}
     >
-      <div className="mx-auto flex w-full max-w-[1320px] items-center justify-between px-5 py-5 md:px-12 lg:px-20 2xl:px-[120px]">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-6 px-5 py-3.5 md:px-10 lg:px-20">
         <Link
           href={`/${locale}`}
-          className="text-sm font-semibold tracking-[0.04em] text-field"
+          aria-label={dictionary.a11y.homeLink}
+          className="shrink-0"
         >
-          IntelCrop
+          <Logo height={34} preload alt="" />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-          {navigation.map((item) => (
-            <a
-              key={item.key}
-              href={item.href}
-              className="text-sm text-mist transition-colors duration-[180ms] hover:text-field"
-            >
-              {navLabels[item.key]}
-            </a>
-          ))}
+        <nav aria-label={dictionary.a11y.primaryNav} className="hidden lg:block">
+          <ul className="flex items-center gap-7">
+            {navigation.map((item) => (
+              <li key={item.key}>
+                <a
+                  href={item.href}
+                  className="text-[15px] font-semibold text-tinta transition-colors hover:text-teal-accesible"
+                >
+                  {navLabels[item.key]}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 md:gap-5">
           <LocaleSwitch locale={locale} dictionary={dictionary} />
-          <TextLink
-            href="#final-cta"
-            className="hidden text-field decoration-teal-bright md:inline-flex"
-          >
-            {dictionary.nav.hablemos}
-          </TextLink>
+          <div className="hidden md:block">
+            <ButtonLink href={contactHref} className="min-h-11 px-6 py-2.5">
+              {dictionary.nav.demo}
+            </ButtonLink>
+          </div>
           <button
             type="button"
-            className="inline-flex min-h-11 min-w-11 items-center justify-center text-field md:hidden"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-tinta lg:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <span className="sr-only">{menuOpen ? 'Close menu' : 'Open menu'}</span>
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              {menuOpen ? (
-                <path
-                  d="M4 4L16 16M16 4L4 16"
-                  stroke="currentColor"
-                  strokeWidth="1.25"
-                  strokeLinecap="round"
-                />
-              ) : (
-                <path
-                  d="M2 5H18M2 10H18M2 15H18"
-                  stroke="currentColor"
-                  strokeWidth="1.25"
-                  strokeLinecap="round"
-                />
-              )}
-            </svg>
+            <span className="sr-only">
+              {menuOpen ? dictionary.nav.closeMenu : dictionary.nav.openMenu}
+            </span>
+            {menuOpen ? (
+              <X aria-hidden="true" size={24} />
+            ) : (
+              <Menu aria-hidden="true" size={24} />
+            )}
           </button>
         </div>
       </div>
@@ -110,31 +100,27 @@ export function Header({
       {menuOpen && (
         <nav
           id="mobile-nav"
-          aria-label="Primary"
-          className="border-t border-canopy-soft bg-canopy px-5 py-6 md:hidden"
+          aria-label={dictionary.a11y.primaryNav}
+          className="border-t border-borde/60 bg-crema px-5 pt-4 pb-8 md:px-10 lg:hidden"
         >
-          <ul className="flex flex-col gap-5">
+          <ul className="flex flex-col">
             {navigation.map((item) => (
               <li key={item.key}>
                 <a
                   href={item.href}
-                  className="block min-h-11 text-base text-field"
+                  className="block py-3 text-lg font-semibold text-tinta"
                   onClick={() => setMenuOpen(false)}
                 >
                   {navLabels[item.key]}
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="#final-cta"
-                className="block min-h-11 text-base text-teal-bright"
-                onClick={() => setMenuOpen(false)}
-              >
-                {dictionary.nav.hablemos}
-              </a>
-            </li>
           </ul>
+          <div onClick={() => setMenuOpen(false)} className="mt-6">
+            <ButtonLink href={contactHref} className="w-full">
+              {dictionary.nav.demo}
+            </ButtonLink>
+          </div>
         </nav>
       )}
     </header>
@@ -155,7 +141,7 @@ function LocaleSwitch({
     <div
       role="group"
       aria-label={dictionary.a11y.languageSwitcherLabel}
-      className="flex items-center gap-1 text-sm"
+      className="flex items-center text-sm font-bold"
     >
       {locales.map((candidate, index) => {
         const targetSegments = [...segments]
@@ -165,13 +151,18 @@ function LocaleSwitch({
 
         return (
           <span key={candidate} className="flex items-center">
-            {index > 0 && <span className="mx-1 text-mist">/</span>}
+            {index > 0 && (
+              <span aria-hidden="true" className="text-gris">
+                /
+              </span>
+            )}
             <Link
               href={href}
+              hrefLang={candidate}
               aria-current={active ? 'true' : undefined}
               className={cn(
-                'min-h-11 px-1 py-2 transition-colors duration-[180ms]',
-                active ? 'text-teal-bright' : 'text-mist hover:text-field'
+                'inline-flex min-h-11 items-center px-1.5 transition-colors',
+                active ? 'text-teal-accesible' : 'text-gris-texto hover:text-tinta'
               )}
             >
               {dictionary.languageSwitch[candidate]}

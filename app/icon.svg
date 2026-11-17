@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#0B3B2E" />
-  <!-- 3x3 pixel-grid sprout, per the brand brief's proposed symbol evolution (§9.4) -->
-  <rect x="10" y="10" width="14" height="14" rx="2" fill="#2FAFA3" />
-  <rect x="40" y="10" width="14" height="14" rx="2" fill="#2FAFA3" />
-  <rect x="25" y="25" width="14" height="14" rx="2" fill="#12938A" />
-  <rect x="25" y="40" width="14" height="14" rx="2" fill="#12938A" />
-</svg>

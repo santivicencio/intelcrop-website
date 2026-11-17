@@ -1,54 +1,71 @@
 @import 'tailwindcss';
 
 /**
- * CONTRAST RULE — derived from the brand palette, non-negotiable.
- * Computed against WCAG 2.2 contrast ratios (see docs/DESIGN_SYSTEM.md for the
- * full table and the script used to derive it):
+ * InteliCrop brand tokens — Manual de marca 2026, §2.2 Color and §3.6 Web.
  *
- *   --color-teal   (#12938A) on canopy = 3.31:1, on field = 3.40:1
- *   --color-gold   (#C99A2E) on canopy = 4.85:1, on field = 2.32:1
- *
- * Neither the brand teal nor the brand gold clears 4.5:1 (normal-text AA) on
- * BOTH surfaces — gold in particular fails even the 3:1 large-text/UI minimum
- * on field. So:
- *   - --color-teal / --color-gold are for NON-TEXT or LARGE-TEXT use only
- *     (rules, data lines, borders, hover fills, headline-sized accents).
- *   - --color-gold is canopy-only. Never place it on field, in any size.
- *   - For small text/labels/links that must be teal-family, two derived,
- *     same-hue tokens exist instead: --color-teal-deep (field only, 6.78:1)
- *     and --color-teal-bright (canopy only, 4.63:1).
- *   - Secondary body text: --color-slate on field (5.38:1) or --color-mist on
- *     canopy (5.79:1) — never the other way around (slate on canopy is 2.09:1).
+ * CONTRAST RULE (WCAG 2.2, computed — see docs/DESIGN_SYSTEM.md):
+ *   - Tinta on Crema 11.6:1, Texto on Crema 12.3:1 → all text.
+ *   - On light surfaces, small teal/ocre text uses the manual's accessible
+ *     variants: --color-teal-accesible (5.2:1) and --color-ocre-accesible (5.1:1).
+ *     Kickers are always ocre-accesible on light surfaces.
+ *   - --color-teal-titulo (#17917B, 3.6:1 on Crema) only for headings ≥ 24px bold.
+ *   - --color-teal (#1FA98E) and --color-ocre (#C98A2B) are never text on light
+ *     surfaces (2.7:1): icons, rules, bars, fills only.
+ *   - On Tinta: Teal Luz 6.7:1, Ocre Sol 5.6:1, Menta 10.6:1 → text-safe.
+ *   - Gris Niebla (#6B7F82) is 3.9:1 on Crema: decorative/large only. Small
+ *     secondary text uses --color-gris-texto (#566A6E, 5.2:1), same hue.
+ *   - Buttons: Tinta fill + white text (primary); white on Teal is 3.0:1, so Teal
+ *     is only the hover state of a ≥16px/800 label, never a resting fill.
  */
 @theme {
-  --color-canopy: #0b3b2e;
-  --color-canopy-soft: #123f32;
-  --color-field: #f5f3ec;
-  --color-field-warm: #eae7dc;
-  --color-teal: #12938a;
-  --color-teal-deep: #0a5f58;
-  --color-teal-bright: #2fafa3;
-  --color-gold: #c99a2e;
-  --color-slate: #5b6660;
-  --color-mist: #a9b3ac;
+  /* Primary */
+  --color-tinta: #0b3b45;
+  --color-teal: #1fa98e;
+  --color-crema: #f8f5ee;
 
-  /* Vigor data scale (maps/charts only, stress -> vigor) — never decorative. */
-  --color-vigor-stress: #b5553c;
-  --color-vigor-low: #e0b04a;
-  --color-vigor-mid: #9cc56b;
-  --color-vigor-high: #2e8b57;
+  /* Secondary */
+  --color-ocre: #c98a2b;
+  --color-ocre-sol: #e0a63f;
+  --color-menta: #e6f2ea;
+  --color-teal-luz: #5ed3b8;
 
-  --text-display: clamp(3rem, 7vw, 6.5rem);
-  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
-  --text-h2: clamp(1.75rem, 3vw, 2.75rem);
-  --text-h3: clamp(1.25rem, 2vw, 1.5rem);
-  --text-body-lg: clamp(1.125rem, 1.4vw, 1.375rem);
-  --text-number-mark: clamp(3rem, 7vw, 6rem);
+  /* Nature — illustration and data only */
+  --color-agua: #3f8fb5;
+  --color-sol: #f2c14e;
+  --color-campo: #3e7d3a;
+  --color-tierra: #6b4a2b;
 
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  /* Neutrals */
+  --color-texto: #1e3238;
+  --color-gris: #6b7f82;
+  --color-gris-texto: #566a6e;
+  --color-borde: #bfd8d0;
 
-  --breakpoint-2xl: 100rem;
+  /* Web accessibility variants */
+  --color-teal-accesible: #0f7563;
+  --color-ocre-accesible: #8f5e12;
+  --color-teal-titulo: #17917b;
+
+  /* Data traffic light — risk and alerts only, never decorative */
+  --color-riesgo-critico: #c0392b;
+  --color-riesgo-alto: #d9822b;
+  --color-riesgo-medio: #d99a2b;
+  --color-riesgo-bajo: #2e8b57;
+
+  /* Type scale — manual §2.3 web column */
+  --text-display: clamp(2.5rem, 5.6vw, 4.5rem);
+  --text-h2: clamp(2rem, 3.2vw, 2.75rem);
+  --text-h3: clamp(1.375rem, 2vw, 1.625rem);
+  --text-h4: 1.125rem;
+  --text-body: 1.0625rem;
+  --text-kicker: 0.8125rem;
+  --text-caption: 0.8125rem;
+
+  --font-sans: var(--font-manrope), Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --radius-card: 28px;
+  --shadow-card: 0 10px 30px rgba(11, 59, 69, 0.08);
 
   --ease-entry: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -59,31 +76,43 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
-  background-color: var(--color-field);
-  color: var(--color-canopy);
+  background-color: var(--color-crema);
+  color: var(--color-texto);
+  font-size: var(--text-body);
+  line-height: 1.6;
 }
 
-.tabular-nums {
-  font-variant-numeric: tabular-nums;
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-tinta);
+  text-wrap: balance;
+}
+
+[data-surface='dark'] h1,
+[data-surface='dark'] h2,
+[data-surface='dark'] h3,
+[data-surface='dark'] h4 {
+  color: #ffffff;
 }
 
 ::selection {
-  background-color: var(--color-teal-deep);
-  color: var(--color-field);
+  background-color: var(--color-teal-accesible);
+  color: #ffffff;
 }
 
-/* Focus ring: teal-deep on light surfaces by default (contrast rule above);
-   sections tagged data-surface="dark" flip descendants to teal-bright. */
 :focus-visible {
-  outline: 2px solid var(--color-teal-deep);
+  outline: 2px solid var(--color-teal-accesible);
   outline-offset: 3px;
 }
 
 [data-surface='dark'] :focus-visible {
-  outline-color: var(--color-teal-bright);
+  outline-color: var(--color-teal-luz);
 }
 
 @media (prefers-reduced-motion: reduce) {

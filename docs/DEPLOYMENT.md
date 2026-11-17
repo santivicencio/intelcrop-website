@@ -9,7 +9,7 @@
   `.env.example`, `lib/site-config.ts` and `next.config.ts`'s redirect
   (apex → `www`, 308) all use it already.
 - `next.config.ts` sets security headers (HSTS, `X-Content-Type-Options`,
-  `Referrer-Policy`, `X-Frame-Options`, a CSP with no third-party origins)
+  `Referrer-Policy`, `X-Frame-Options`, a CSP whose only third-party origin is the optional contact-form endpoint)
   and the canonical-host redirect.
 - `app/sitemap.ts`, `app/robots.ts`, `app/manifest.ts`, `app/icon.svg`,
   `app/apple-icon.tsx` and `app/[locale]/opengraph-image.tsx` are all wired
@@ -33,6 +33,8 @@
 4. Set `NEXT_PUBLIC_SITE_URL` under Settings → Environment Variables to
    `https://www.intelicrop.com` and redeploy, so sitemap/robots/OG images
    use the right host from the start.
+5. Set `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` (see README → "Contact form") so the
+   contact form delivers to comercial@intelicrop.com, then redeploy.
 
 ## Connecting `intelicrop.com`
 

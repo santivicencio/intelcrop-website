@@ -1,285 +1,457 @@
 {
   "meta": {
-    "title": "IntelCrop — Digitalization | Agricultural Intelligence | Agrifinance",
-    "description": "IntelCrop digitizes agricultural producers and connects their crop to credit, markets and technology through satellite data and artificial intelligence.",
-    "ogAlt": "IntelCrop — Digitalization | Agricultural Intelligence | Agrifinance"
+    "title": "InteliCrop | AI for agriculture: agricultural risk, agri credit scoring and satellite crop monitoring",
+    "description": "Satellite + AI so banks, cooperatives and agribusiness can finance, insure and support producers with evidence. Agroclimatic Score in 24–72 h. Official CROPIN representative in Ecuador and LATAM.",
+    "ogAlt": "InteliCrop — AI for agriculture. The land speaks. We understand it.",
+    "keywords": [
+      "agricultural risk",
+      "agri credit score",
+      "satellite crop monitoring",
+      "El Niño Ecuador",
+      "Agroclimatic Score",
+      "agri-fintech",
+      "CROPIN Ecuador",
+      "EUDR"
+    ]
   },
   "nav": {
-    "comoFunciona": "How it works",
     "soluciones": "Solutions",
-    "paraQuien": "Who it's for",
-    "observatorio": "Observatory",
+    "paraIfis": "For lenders",
+    "agroindustria": "Agribusiness",
+    "sostenibilidad": "Sustainability",
     "nosotros": "About",
-    "hablemos": "Let's talk"
+    "demo": "Book a demo",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "languageSwitch": {
-    "label": "Language",
     "es": "ES",
     "en": "EN"
   },
   "hero": {
-    "eyebrow": "DIGITALIZATION | AGRICULTURAL INTELLIGENCE | AGRIFINANCE",
-    "headline": "We make the value of farming visible.",
-    "subcopy": "We digitize agricultural producers and connect their crop — with real-time satellite data and artificial intelligence — to those who finance them, supply them, buy from them and support their development.",
-    "ctaPrimary": "See how it works",
-    "ctaSecondary": "Let's talk"
+    "kicker": "Smart agri analytics · Fintech",
+    "headlineStart": "Data that sows",
+    "headlineAccent": "opportunity.",
+    "subcopy": "Satellite + AI so banks, cooperatives and agribusiness can finance, insure and support producers with evidence.",
+    "ctaPrimary": "Get a Productive Score",
+    "ctaSecondary": "See how it works",
+    "cropin": "Official CROPIN representative in Ecuador and LATAM"
   },
-  "ecosystem": {
-    "eyebrow": "THE PRODUCER AT THE CENTER",
-    "heading": "When the producer is visible, the whole ecosystem moves forward.",
-    "centerLabel": "The producer and their crop",
-    "ringLabel": "Satellite · AI · Climate · Field data",
-    "tapHint": "Tap each actor to see their benefit",
-    "actors": {
-      "financiero": {
-        "name": "Financial institutions",
-        "benefit": "Credit backed by the crop, not only by history."
-      },
-      "insumos": {
-        "name": "Input suppliers and distributors",
-        "benefit": "Sales built on diagnosis, not on a catalog."
-      },
-      "industria": {
-        "name": "Agro-industry and exporters",
-        "benefit": "Supply and traceability of raw material."
-      },
-      "gobierno": {
-        "name": "Government and insurers",
-        "benefit": "Field evidence for policy and agricultural insurance."
-      },
-      "multilaterales": {
-        "name": "Multilaterals",
-        "benefit": "Verifiable indicators for development programs."
-      },
-      "academia": {
-        "name": "Academia",
-        "benefit": "Standardized data to calibrate models and transfer knowledge."
-      }
-    }
-  },
-  "questions": {
-    "eyebrow": "QUESTIONS AGRICULTURE STILL ANSWERS BLINDLY",
-    "heading": "Four questions agriculture still answers blindly.",
-    "todayLabel": "Today",
-    "withIntelCropLabel": "With IntelCrop",
+  "stats": {
+    "label": "InteliCrop in numbers",
     "items": [
-      {
-        "question": "Where is it planted, what, and since when?",
-        "today": "It's estimated.",
-        "withIntelCrop": "It's measured.",
-        "solutionArea": "digitalizacion"
-      },
-      {
-        "question": "How is the crop doing today?",
-        "today": "You find out when the technician arrives.",
-        "withIntelCrop": "You know beforehand.",
-        "solutionArea": "inteligencia"
-      },
-      {
-        "question": "What will the harvest yield?",
-        "today": "It's an expectation.",
-        "withIntelCrop": "It's a forecast.",
-        "solutionArea": "inteligencia"
-      },
-      {
-        "question": "Did the product or practice applied work?",
-        "today": "It's perception.",
-        "withIntelCrop": "It's comparable evidence.",
-        "solutionArea": "inteligencia"
-      }
+      { "value": "1.2M+", "label": "ha modeled in Ecuador" },
+      { "value": "170+", "label": "crops with ML models" },
+      { "value": "3×3 m", "label": "resolution per image" },
+      { "value": "24–72 h", "label": "Agroclimatic Score" }
     ]
   },
-  "satellite": {
-    "eyebrow": "FROM SATELLITE TO FIELD",
-    "heading": "Global technology. Decisions on the plot.",
-    "chains": {
-      "produccion": ["Image", "Vigor", "Yield"],
-      "sanidad": ["Signal", "Alert", "Action"],
-      "clima": ["Forecast", "Risk", "Decision"]
-    },
-    "statsNote": "Reference figures, pending validation.",
-    "stats": [
-      { "value": "200+", "label": "satellites" },
-      { "value": "3×3 m", "label": "resolution" },
-      { "value": "40 years", "label": "of historical imagery" },
-      { "value": "170+", "label": "crops" },
-      { "value": "24/7", "label": "in the cloud" }
-    ],
-    "alertsChannelsNote": "Alerts reach the producer by SMS, WhatsApp and email."
-  },
-  "credit": {
-    "eyebrow": "END-TO-END AGRIFINANCE",
-    "heading": "The quality of the portfolio is the quality of the crops behind it.",
-    "supportingLine": "We measure productive risk, not only financial risk.",
-    "stages": {
-      "prospeccion": {
-        "name": "Prospecting",
-        "description": "Sector analysis and profiling of the potential producer universe."
+  "problem": {
+    "kicker": "Context",
+    "heading": "The problems facing agriculture",
+    "subcopy": "Gaps in information and technology between producers, distributors and consumers keep rural Latin America poor.",
+    "items": [
+      {
+        "title": "Technology",
+        "highlight": "72 million",
+        "body": "rural inhabitants in the region lack meaningful connectivity: with no signal or data, precision agriculture never reaches the farm."
       },
-      "originacion": {
-        "name": "Origination",
-        "description": "Planting validation and productive scoring before approving the line."
+      {
+        "title": "Information",
+        "highlight": "Over 80%",
+        "body": "of farms in the region are family farms, and there is still no systematic data to measure their productivity."
       },
-      "seguimiento": {
-        "name": "Monitoring",
-        "description": "Stress, drought or flooding alerts on the plots backing the debt."
-      },
-      "cobranza": {
-        "name": "Provisioning and collection",
-        "description": "Yield forecasting to anticipate deterioration before it's due."
+      {
+        "title": "Financing",
+        "highlight": "70%",
+        "body": "of smallholder credit demand goes unmet: a US$170 billion gap."
       }
-    }
+    ],
+    "gapKicker": "The gap",
+    "gapItems": [
+      {
+        "value": "US$123 billion",
+        "label": "in crops and livestock are lost to disasters worldwide every year."
+      },
+      {
+        "value": "34 pp",
+        "label": "separate urban connectivity (71%) from rural (37%)."
+      }
+    ],
+    "exitKicker": "The way out: digitize the producer",
+    "exitBody": "Their plot, with a track record for credit and insurance.",
+    "sources": "Sources: IICA, World Bank et al., Rural connectivity in LAC (2022) · FAO and UNDP, Family farming in LAC (2024) · ISF Advisors, Pathways to Prosperity (2019) · FAO, The Impact of Disasters on Agriculture and Food Security (2023), 1991–2021 average."
+  },
+  "how": {
+    "kicker": "How it works",
+    "heading": "Five sources, one data point per plot, six players who decide with it",
+    "integrateLabel": "We integrate",
+    "sources": [
+      { "name": "Satellite", "detail": "200+ satellites, 3×3 m" },
+      { "name": "Climate and agroclimate", "detail": "Rainfall, temperature, ENSO" },
+      { "name": "Field data", "detail": "Visits, app and sensors" },
+      { "name": "History", "detail": "40 years of imagery" },
+      { "name": "Crops", "detail": "Models for 170+ crops" }
+    ],
+    "coreTagline": "Standardizes · Unifies · Delivers",
+    "core": [
+      { "name": "Analysis", "detail": "Models calibrated by crop and zone" },
+      { "name": "Training", "detail": "We train producers and users" },
+      { "name": "Automation", "detail": "Dashboards and APIs for each client" }
+    ],
+    "coreFooter": "One auditable data point per plot · 100% in the cloud",
+    "serveLabel": "We serve",
+    "actors": [
+      { "name": "Banks and credit unions", "detail": "Score in 24–72 h" },
+      { "name": "Insurers", "detail": "Risk coverage" },
+      { "name": "Inputs and agribusiness", "detail": "Precision analytics" },
+      { "name": "Exporters", "detail": "EUDR traceability" },
+      { "name": "Governments", "detail": "Analysis by canton" },
+      { "name": "Producers", "detail": "Their plot on their phone" }
+    ],
+    "closing": "We develop the producer and the whole value chain, with business models that can be replicated across Latin America."
   },
   "solutions": {
-    "eyebrow": "SOLUTIONS",
-    "heading": "Four solutions. One producer at the center.",
-    "note": "Each solution has its own page, with full detail.",
-    "areas": {
-      "digitalizacion": {
-        "name": "Producer digitization",
-        "tagline": "The producer, made visible.",
-        "items": [
-          "Analytics licenses",
-          "Georeferencing and profiling",
-          "Standardized data bank",
-          "Ongoing training"
-        ]
+    "kicker": "Solutions",
+    "headingStart": "From satellite",
+    "headingAccent": "to credit.",
+    "subcopy": "We integrate the agri value chain's services so every player decides with the same data: complete, standardized, verified and processed.",
+    "items": [
+      {
+        "name": "Productive Score",
+        "body": "An individual analytical system per plot and crop. It measures the productive strength of each active plot: climate, health and biological risks, historical productive strength and presence of deforestation."
       },
-      "inteligencia": {
-        "name": "Agricultural intelligence",
-        "tagline": "From satellite to decision on the plot.",
-        "items": [
-          "Production and yield",
-          "Crop health",
-          "Climate",
-          "Sector and market analysis",
-          "Automated dashboards"
-        ]
+      {
+        "name": "Analytics licenses",
+        "body": "A mobile app that digitizes the producer: standardized forms per crop, productive indicators and continuous alerts about their plot."
       },
-      "agrofinanzas": {
-        "name": "End-to-end agrifinance",
-        "tagline": "Credit backed by the crop.",
-        "items": [
-          "Prospecting",
-          "Origination",
-          "Monitoring",
-          "Provisioning and collection",
-          "Agricultural insurance and public programs"
-        ]
+      {
+        "name": "Regional Productive Analysis",
+        "body": "Productive status by geographic zone, crop, segment (micro, SME, corporate) and cycle. For corporate, institutional and government clients."
       },
-      "sostenibilidad": {
-        "name": "Sustainability and traceability",
-        "tagline": "Traceability that opens markets.",
-        "items": [
-          "Carbon footprint and biomass capture",
-          "Deforestation and EUDR",
-          "Water and land",
-          "Impact and SDGs"
-        ]
+      {
+        "name": "Regional Climate Analysis",
+        "body": "Satellite monitoring by agroclimatic zone (country, province, canton): rainfall and temperature anomalies, ENSO events, drought and flooding, crossed with portfolio exposure."
+      },
+      {
+        "name": "Ongoing training",
+        "body": "Use of the digital tools and alert systems, crop control and development techniques, and best practices seen in other countries."
+      },
+      {
+        "name": "Automated dashboards",
+        "body": "Dashboards that turn large volumes of data into visual, actionable stories, dynamically and on time. Powered by Power BI."
       }
-    }
+    ],
+    "modelsKicker": "AI models",
+    "modelsHeading": "Prediction and intelligence on climate and production data",
+    "modelsNote": "We keep investing in domain-specific foundation models.",
+    "models": [
+      {
+        "name": "Crop detection",
+        "body": "Crop area and estimated production by country, canton or plot."
+      },
+      { "name": "Nitrogen uptake", "body": "Monitoring of the crop's nitrogen uptake." },
+      {
+        "name": "Water stress",
+        "body": "Irrigation advice by location and growth stage."
+      },
+      { "name": "Disease", "body": "Early warnings of disease and pests." },
+      { "name": "Crop progress", "body": "Tracking of the crop's growth stage." },
+      { "name": "Yield forecast", "body": "Yield estimate up to maturity date." }
+    ],
+    "cta": "Get a Productive Score"
   },
-  "audience": {
-    "eyebrow": "WHO IT'S FOR",
-    "heading": "An entry point for every actor in the ecosystem.",
-    "blocks": {
-      "productores": {
-        "name": "Producers and associations",
-        "description": "Information to produce better, access credit and reach demanding markets."
+  "ifis": {
+    "kicker": "For lenders · Credit process",
+    "heading": "We are part of the whole credit analysis process",
+    "subcopy": "From prospecting to collections, the same data supports every stage of the decision.",
+    "stages": [
+      {
+        "name": "Prospecting",
+        "lead": "Sector analysis by crop and producer prospecting.",
+        "body": "Where the universe is, what it grows and on how much land."
       },
-      "financiero": {
-        "name": "Financial institutions",
-        "description": "Productive risk, origination and portfolio monitoring backed by field evidence."
+      {
+        "name": "Origination",
+        "lead": "Agroclimatic Score and plot georeferencing.",
+        "body": "Amount, term and collateral set by the plot's risk band."
       },
-      "insumos": {
-        "name": "Input suppliers and distribution",
-        "description": "Targeted sales, per-plot diagnosis and product performance."
+      {
+        "name": "Monitoring",
+        "lead": "Satellite monitoring and alerts on pledged plots.",
+        "body": "Stress, drought or waterlogging crossed with the repayment calendar."
       },
-      "industria": {
-        "name": "Agro-industry and exports",
-        "description": "Secured supply, demand forecasting and traceability for demanding markets."
-      },
-      "gobierno": {
-        "name": "Government and multilaterals",
-        "description": "Public policy, agricultural insurance and programs with verifiable evidence."
-      },
-      "academia": {
-        "name": "Academia",
-        "description": "Standardized data to calibrate models and transfer knowledge to the field."
+      {
+        "name": "Collections",
+        "lead": "Producer digitization and preventive collections.",
+        "body": "Reschedule before the due date, not after default."
       }
-    }
+    ],
+    "callout": "We don't only come in at the end.",
+    "calloutBody": "The same measurement that approves the loan monitors it during the cycle and anticipates collections: one productive source of repayment, auditable from start to finish.",
+    "scoreKicker": "Agroclimatic Score",
+    "scoreHeading": "A rating of productive risk, not just financial risk",
+    "scoreSubcopy": "Agri credit is repaid with the harvest: portfolio quality is the quality of the crops behind it.",
+    "scoreBlocks": [
+      {
+        "name": "What it measures",
+        "body": "Eight productive blocks on the plot: soil and climate, crop and vigor, management, cycle history, territory and absorption capacity."
+      },
+      {
+        "name": "Analysis windows",
+        "body": "History of previous cycles, the state of the current cycle and the projection up to the harvest that backs the installment."
+      },
+      {
+        "name": "How to read it",
+        "body": "A 0–100 band: the higher the score, the lower the productive risk. Bands translate into decisions on amount, term and collateral."
+      }
+    ],
+    "scoreDecisionLabel": "From score to decision",
+    "scoreDecision": [
+      { "value": "24–72 h", "label": "Delivered per producer and per plot" },
+      { "value": "Origination", "label": "Risk band at approval" },
+      { "value": "Monitoring", "label": "Re-read per cycle and per alert" },
+      { "value": "Expected loss", "label": "Productive input for PD and LGD" }
+    ],
+    "scoreNote": "The score doesn't replace the bank's model: it complements it with the productive source of repayment the financial model doesn't capture.",
+    "climateKicker": "Zonal climate and physical risk",
+    "climateHeading": "Climate risk is measured by agroclimatic zone, not by client",
+    "climateSubcopy": "A portfolio diversified by client can still be concentrated in the same basin, crop and harvest calendar.",
+    "climateItems": [
+      {
+        "name": "Exposure map",
+        "points": [
+          "Georeferences every financed plot",
+          "Crosses the balance with the hazard by zone, crop and cycle",
+          "Exposed balance by basin and canton, not only by province"
+        ]
+      },
+      {
+        "name": "Weekly zonal monitoring",
+        "points": [
+          "Satellite reports on the zones where clients are",
+          "Alerts for extreme rainfall, drought and heat waves",
+          "A log of climate indicators for the institution"
+        ]
+      },
+      {
+        "name": "ENSO stress test",
+        "points": [
+          "Applies the 1997–98 El Niño scenario to today's portfolio",
+          "Incremental expected loss by zone and crop",
+          "Input for provisions and risk appetite"
+        ]
+      },
+      {
+        "name": "Repayment calendar",
+        "points": [
+          "Crosses each due date with the rainy-season window",
+          "Prioritizes rescheduling before default",
+          "Preventive collections triggered by crop condition"
+        ]
+      }
+    ],
+    "baselKicker": "Basel · Climate risk",
+    "baselHeading": "Basel already treats climate as a prudential risk on five fronts",
+    "baselSubcopy": "The Basel Committee defines climate as a driver of the risks banks already manage: without climate variables, they can't measure or report them.",
+    "baselRequiresLabel": "What it requires",
+    "baselContributionLabel": "InteliCrop's contribution",
+    "baselItems": [
+      {
+        "name": "Governance and appetite",
+        "requires": "Defined owners and limits",
+        "contribution": "Exposure by agroclimatic zone, crop and cycle"
+      },
+      {
+        "name": "Credit risk",
+        "requires": "Climate in PD, LGD and collateral",
+        "contribution": "Plot georeference, hazard and crop condition"
+      },
+      {
+        "name": "Capital and liquidity",
+        "requires": "Adequacy under shock",
+        "contribution": "Incremental expected loss per climate event"
+      },
+      {
+        "name": "Scenarios and stress",
+        "requires": "Scenario analysis",
+        "contribution": "1997–98 ENSO scenario applied to today's portfolio"
+      },
+      {
+        "name": "Disclosure (Pillar 3)",
+        "requires": "Qualitative and quantitative reporting",
+        "contribution": "Exposed balance by province, canton and hazard"
+      }
+    ],
+    "baselClosing": "All five requirements start from the same data: the georeferenced portfolio crossed with each zone's climate hazard.",
+    "baselSources": "BCBS, Principles for the effective management and supervision of climate-related financial risks (Jun 2022) · BCBS, A framework for the voluntary disclosure of climate-related financial risks (Jun 2025).",
+    "safeguard": "Safeguard: the score complements the bank's model, it doesn't replace it. No adverse decision about a client rests on the climate signal alone; every decision keeps documented human review.",
+    "cta": "Request a portfolio pilot"
+  },
+  "elNino": {
+    "headingStart": "El Niño 2026–27 is already in your portfolio.",
+    "headingAccent": "Are you measuring it?",
+    "body": "We can start by measuring the real exposure of your agri portfolio: a concentration map by basin and canton, and the incremental expected loss on the current book.",
+    "cta": "Measure my portfolio",
+    "sealAlt": "InteliCrop seal"
+  },
+  "actors": {
+    "kicker": "One base, four players",
+    "heading": "The same data solves each player's pain point",
+    "subcopy": "Every digitized plot feeds the score, origination and territorial intelligence.",
+    "painLabel": "Pain point",
+    "deliverLabel": "InteliCrop delivers",
+    "items": [
+      {
+        "name": "Producers and associations",
+        "pain": "Produce without data and with little access to credit.",
+        "deliver": "An app with pest, water-stress and weather alerts.",
+        "metric": "3×3 m",
+        "metricLabel": "satellite resolution per plot"
+      },
+      {
+        "name": "Banks and credit unions",
+        "pain": "Agri delinquency of 9.88% at credit unions vs. 4.09% at banks (Jul 2026).",
+        "deliver": "Productive score, yield forecast and traceability; real-time climate, productive, health and sustainability alerts.",
+        "metric": "24–72 h",
+        "metricLabel": "Agroclimatic Score delivery"
+      },
+      {
+        "name": "Agribusiness and exporters",
+        "pain": "Don't know what, where or how much will be harvested.",
+        "deliver": "Yield forecasts and traceability.",
+        "metric": "EUDR",
+        "metricLabel": "traceability compliance"
+      },
+      {
+        "name": "Government and multilaterals",
+        "pain": "Design policies and insurance without territorial evidence.",
+        "deliver": "Territorial intelligence by country, province and canton.",
+        "metric": "10×10 m",
+        "metricLabel": "zonal analysis"
+      }
+    ],
+    "fronts": {
+      "kicker": "Precision analytics",
+      "heading": "Six information fronts on every crop",
+      "items": [
+        {
+          "name": "Monitoring",
+          "body": "Real-time vegetative status and key development indicators."
+        },
+        {
+          "name": "Outlook",
+          "body": "Harvest planning and projected production tonnage."
+        },
+        {
+          "name": "Disease",
+          "body": "Control and notification of disease driven by climate shifts and pests."
+        },
+        {
+          "name": "Alerts",
+          "body": "Tailored alerts: climate, productive and sustainability conditions."
+        },
+        {
+          "name": "Planning",
+          "body": "Fertilization, application and corrective decisions for the crop."
+        },
+        {
+          "name": "Development",
+          "body": "Training in best practices by soil, geography and crop climate."
+        }
+      ]
+    },
+    "cta": "Talk to a specialist"
+  },
+  "ecuador": {
+    "kicker": "The opportunity",
+    "heading": "A large, underserved market with no data",
+    "subcopy": "Global context: US$3.21T in agricultural credit · 270M smallholders without formal credit · 80% outside formal banking.",
+    "marketLabel": "Ecuador — entry market",
+    "stats": [
+      {
+        "value": "US$5,993M",
+        "label": "Agri portfolio, Jul 2026: banks US$5,016M · credit unions US$977M"
+      },
+      {
+        "value": "9.88%",
+        "label": "Agri delinquency at credit unions, vs. 4.09% at banks (system: 5.04%)"
+      },
+      { "value": "800K+", "label": "Agricultural producers to digitize" },
+      { "value": "1.2M+ ha", "label": "Hectares in production" }
+    ],
+    "statsSource": "Sources: SB and SEPS Ecuador (Jul 2026); MAG.",
+    "chartKicker": "Reviewed models",
+    "chartHeading": "Most developed crops in Ecuador",
+    "chartUnit": "ha",
+    "chartSource": "Source: MAG – Ecuador.",
+    "chartReviewed": "Reviewed model",
+    "crops": [
+      { "name": "Cocoa", "hectares": 501000, "label": "501K", "reviewed": true },
+      { "name": "Corn", "hectares": 459000, "label": "459K", "reviewed": true },
+      { "name": "Rice", "hectares": 301000, "label": "301K", "reviewed": true },
+      { "name": "Oil palm", "hectares": 259000, "label": "259K", "reviewed": true },
+      { "name": "Banana", "hectares": 164000, "label": "164K", "reviewed": true },
+      { "name": "Sugarcane", "hectares": 132000, "label": "132K", "reviewed": true },
+      { "name": "Coffee", "hectares": 38000, "label": "38K", "reviewed": true },
+      { "name": "Potato", "hectares": 23500, "label": "23.5K", "reviewed": false },
+      { "name": "Soy", "hectares": 23300, "label": "23.3K", "reviewed": false },
+      { "name": "Broccoli", "hectares": 11400, "label": "11.4K", "reviewed": false }
+    ]
   },
   "sustainability": {
-    "eyebrow": "SUSTAINABILITY",
-    "heading": "Sustainability that is measured, verified and opens markets.",
-    "items": [
-      {
-        "name": "Carbon footprint",
-        "description": "Estimation and monitoring of biomass capture by plot and by portfolio."
-      },
-      {
-        "name": "Deforestation and EUDR",
-        "description": "Monitoring of polygons with history prior to 2020 for exports to the European Union."
-      },
-      {
-        "name": "Water and land",
-        "description": "Water footprint and efficient irrigation linked to weather conditions."
-      },
-      {
-        "name": "Impact and SDGs",
-        "description": "Indicators and reports for financial institutions, multilaterals and development programs."
-      }
+    "kicker": "Sustainability",
+    "heading": "Bigger harvests, smaller footprint",
+    "subcopy": "We make key sustainable practices available to agriculture and track their progress with the same satellite data.",
+    "practices": [
+      "Crop management",
+      "Carbon footprint monitoring",
+      "Deforestation monitoring",
+      "Water footprint reduction and irrigation advice",
+      "Land use",
+      "On-farm waste management",
+      "Responsible use of agrochemicals"
     ],
-    "odsNote": "Alignment with the Sustainable Development Goals pending confirmation."
-  },
-  "ecuadorData": {
-    "eyebrow": "ECUADOR IN DATA",
-    "heading": "A productive territory that deserves to be seen with precision.",
-    "statsNote": "Reference figures, pending validation.",
-    "stats": [
-      { "value": "+1.2M", "label": "hectares in production" },
-      { "value": "+800 thousand", "label": "producers" }
+    "odsKicker": "SDGs",
+    "odsBody": "At InteliCrop we are committed to sustainability and to advancing the Sustainable Development Goals.",
+    "ods": [
+      { "number": "2", "name": "Zero hunger" },
+      { "number": "8", "name": "Decent work" },
+      { "number": "12", "name": "Responsible production" },
+      { "number": "13", "name": "Climate action" },
+      { "number": "15", "name": "Life on land" }
     ],
-    "cropsLabel": "Main crops",
-    "crops": ["Cacao", "Corn", "Rice", "Palm", "Banana", "Coffee", "Sugar cane"]
+    "eudr": "Traceability and deforestation-free evidence for exporters' EUDR compliance.",
+    "cta": "Request the EUDR sheet"
   },
-  "whyIntelCrop": {
+  "about": {
+    "kicker": "About",
+    "heading": "A data-driven agri-fintech",
+    "body": "InteliCrop is an agricultural analytics and technology company. We combine satellite imagery (200+ satellites, 3×3 m resolution and over 40 years of history), climate data and field data with AI models trained for more than 170 crops, 100% in the cloud.",
+    "body2": "We put that intelligence to work for those who finance, buy, insure and regulate agriculture: financial institutions, agribusiness and exporters, governments, certifiers, associations and producers themselves.",
+    "cropin": "Official CROPIN representative in Ecuador and LATAM",
     "statements": [
-      "Technology without the producer generates no development.",
-      "Data without a standard generates no trust.",
-      "Credit without crop information is a blind risk."
-    ],
-    "equationParts": ["PRODUCER", "× DATA", "× ECOSYSTEM ="],
-    "equationResult": "DEVELOPMENT"
-  },
-  "team": {
-    "eyebrow": "TEAM AND ALLIANCES",
-    "heading": "Global technology. Local presence.",
-    "body": "IntelCrop combines global precision-agriculture technology with a local team that works in the field alongside producers, and builds alliances with financial institutions, industry, academia and development organizations."
-  },
-  "observatory": {
-    "eyebrow": "OBSERVATORY",
-    "heading": "Agroclimatic and sector perspective.",
-    "placeholderNote": "Placeholder entries. Reports pending publication.",
-    "items": [
-      { "date": "—", "category": "Climate risk", "title": "[Report title pending]" },
       {
-        "date": "—",
-        "category": "Credit and agriculture",
-        "title": "[Report title pending]"
+        "name": "Purpose",
+        "body": "Close the information gap between the field and capital so every producer is visible, measurable and financeable."
       },
       {
-        "date": "—",
-        "category": "Sustainability and EUDR",
-        "title": "[Report title pending]"
+        "name": "Mission",
+        "body": "Drive farmers' development through a smart agricultural cloud that turns satellite, climate and field data into production, credit and sustainability decisions."
+      },
+      {
+        "name": "Vision 2030",
+        "body": "Be Latin America's reference platform for measuring agricultural productive risk and enabling responsible financing for more than one million hectares."
       }
     ]
   },
-  "finalCta": {
-    "heading": "Let's make your field visible.",
-    "subcopy": "Do you finance, supply, buy from or support agricultural producers? Let's talk.",
-    "whatsappCta": "I'm a producer: write to us on WhatsApp",
-    "whatsappNote": "Direct channel pending confirmation.",
+  "contact": {
+    "kicker": "Let's talk",
+    "heading": "Risk measured, farms financed.",
+    "subcopy": "Tell us what you need and we'll reply from comercial@intelicrop.com.",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "webLabel": "Web",
     "form": {
       "nameLabel": "Name",
       "nameError": "Please enter your name.",
@@ -287,31 +459,49 @@
       "organizationError": "Please enter your organization.",
       "organizationTypeLabel": "Organization type",
       "organizationTypeOptions": [
-        "Producer / Association",
-        "Financial institution",
-        "Input supplier / distribution",
-        "Agro-industry / export",
+        "Bank or credit union",
+        "Insurer",
+        "Agribusiness or exporter",
+        "Agricultural inputs",
         "Government or multilateral",
-        "Academia"
+        "Producer or association",
+        "Other"
+      ],
+      "interestLabel": "I'm interested in",
+      "interestOptions": [
+        "Booking a demo",
+        "Getting a Productive Score",
+        "A portfolio pilot",
+        "Regional climate analysis / El Niño",
+        "Traceability and EUDR",
+        "Licenses for producers",
+        "Other"
       ],
       "emailLabel": "Email",
-      "emailError": "Please enter a valid email address.",
-      "needLabel": "What do you need to solve?",
-      "needError": "Please describe what you need to solve.",
+      "emailError": "Please enter a valid email.",
+      "phoneLabel": "Phone (optional)",
+      "messageLabel": "Message",
+      "messageError": "Tell us briefly what you need.",
       "submitLabel": "Send message",
       "submittingLabel": "Sending…",
-      "successMessage": "Thank you. We'll be in touch shortly.",
-      "errorMessage": "Something went wrong. Please try again."
+      "successMessage": "Thank you. Your message reached comercial@intelicrop.com and we'll get back to you soon.",
+      "mailtoMessage": "We opened your email app with the message ready for comercial@intelicrop.com. Just press Send.",
+      "errorMessage": "We couldn't send your message. Please write to us directly at comercial@intelicrop.com.",
+      "subjectPrefix": "InteliCrop website contact",
+      "privacyNote": "We'll only use your details to reply to this request."
     }
   },
   "footer": {
-    "contactLabel": "Contact",
-    "legalLabel": "Legal notice",
-    "privacyLabel": "Privacy",
-    "copyrightSuffix": "All rights reserved."
+    "brandLineRest": "for agriculture.",
+    "tagline": "The land speaks. We understand it.",
+    "rights": "All rights reserved."
   },
   "a11y": {
     "skipToContent": "Skip to content",
-    "languageSwitcherLabel": "Language"
+    "languageSwitcherLabel": "Language",
+    "primaryNav": "Main navigation",
+    "footerNav": "Footer navigation",
+    "homeLink": "InteliCrop, home",
+    "chartDescription": "Horizontal bar chart of planted area in hectares for the ten most developed crops in Ecuador."
   }
 }

@@ -2,35 +2,45 @@ import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils/cn'
 import { Container } from './Container'
 
-type Surface = 'canopy' | 'field'
+export type Surface = 'crema' | 'white' | 'menta' | 'tinta'
 
 const surfaceClasses: Record<Surface, string> = {
-  canopy: 'bg-canopy text-field',
-  field: 'bg-field text-canopy',
+  crema: 'bg-crema text-texto',
+  white: 'bg-white text-texto',
+  menta: 'bg-menta text-texto',
+  tinta: 'bg-tinta text-menta',
 }
 
 export function Section({
   id,
-  surface,
+  surface = 'crema',
   children,
   className,
   containerClassName,
-  ariaLabel,
+  ariaLabelledBy,
+  decor,
 }: {
   id?: string
-  surface: Surface
+  surface?: Surface
   children: ReactNode
   className?: string
   containerClassName?: string
-  ariaLabel?: string
+  ariaLabelledBy?: string
+  /** Absolutely positioned background art (contour lines, satellite grid). */
+  decor?: ReactNode
 }) {
   return (
     <section
       id={id}
-      aria-label={ariaLabel}
-      data-surface={surface === 'canopy' ? 'dark' : 'light'}
-      className={cn('py-[clamp(96px,12vh,200px)]', surfaceClasses[surface], className)}
+      aria-labelledby={ariaLabelledBy}
+      data-surface={surface === 'tinta' ? 'dark' : 'light'}
+      className={cn(
+        'relative isolate overflow-hidden py-20 md:py-28',
+        surfaceClasses[surface],
+        className
+      )}
     >
+      {decor}
       <Container className={containerClassName}>{children}</Container>
     </section>
   )

@@ -1,12 +1,11 @@
-import type { Metadata } from 'next'
-import { Manrope, IBM_Plex_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Manrope, JetBrains_Mono } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import type { ReactNode } from 'react'
 import { LazyMotion, domAnimation } from 'framer-motion'
 import { locales, isLocale } from '@/lib/i18n/config'
 import { getDictionary } from '@/lib/i18n/get-dictionary'
 import { absoluteUrl, siteConfig, siteUrl } from '@/lib/site-config'
-import { solutionAreaIds } from '@/content/site'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import '../globals.css'
@@ -17,12 +16,16 @@ const manrope = Manrope({
   display: 'swap',
 })
 
-const plexMono = IBM_Plex_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-plex-mono',
+  weight: ['400', '700'],
+  variable: '--font-jetbrains-mono',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  themeColor: siteConfig.themeColor,
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -43,6 +46,7 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
       default: dictionary.meta.title,
     },
     description: dictionary.meta.description,
+    keywords: dictionary.meta.keywords,
     alternates: {
       canonical: absoluteUrl(`/${locale}`),
       languages: {
@@ -84,13 +88,24 @@ export default async function RootLayout({
     name: siteConfig.name,
     description: dictionary.meta.description,
     url: absoluteUrl(`/${locale}`),
-    areaServed: 'Ecuador',
-    knowsAbout: solutionAreaIds.map((id) => dictionary.solutions.areas[id].name),
+    logo: absoluteUrl('/brand/intelicrop-app-icon.png'),
+    email: siteConfig.contactEmail,
+    telephone: siteConfig.phones[0],
+    slogan: siteConfig.tagline,
+    areaServed: ['Ecuador', 'Latin America'],
+    knowsAbout: dictionary.solutions.items.map((item) => item.name),
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: siteConfig.contactEmail,
+      telephone: siteConfig.phones[0],
+      availableLanguage: ['es', 'en'],
+    },
   }
 
   return (
-    <html lang={locale} className={`${manrope.variable} ${plexMono.variable}`}>
-      <body className="bg-field font-sans text-canopy antialiased">
+    <html lang={locale} className={`${manrope.variable} ${jetbrainsMono.variable}`}>
+      <body className="bg-crema font-sans text-texto antialiased">
         {/* Without JS, framer-motion never runs, so its inline initial (opacity: 0) styles
             would otherwise persist forever — this keeps the site readable per WCAG. */}
         <noscript>
@@ -101,7 +116,7 @@ export default async function RootLayout({
         <LazyMotion features={domAnimation} strict>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-teal-deep focus:px-4 focus:py-2 focus:text-field"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-tinta focus:px-5 focus:py-2.5 focus:text-white"
           >
             {dictionary.a11y.skipToContent}
           </a>
