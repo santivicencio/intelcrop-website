@@ -39,27 +39,6 @@
     "ctaSecondary": "Ver cómo funciona",
     "cropin": "Representante oficial de CROPIN en Ecuador y LATAM"
   },
-  "stats": {
-    "label": "InteliCrop en cifras",
-    "items": [
-      {
-        "value": "+200",
-        "label": "satélites"
-      },
-      {
-        "value": "+170",
-        "label": "cultivos con ML"
-      },
-      {
-        "value": "3×3 m",
-        "label": "resolución por imagen"
-      },
-      {
-        "value": "24–72 h",
-        "label": "Score Agroclimático"
-      }
-    ]
-  },
   "problem": {
     "kicker": "Contexto",
     "heading": "Los problemas del sector agrícola",

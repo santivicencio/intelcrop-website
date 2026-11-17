@@ -12,12 +12,12 @@ export function Hero({ dictionary }: { dictionary: Dictionary }) {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden bg-crema pt-28 md:pt-32"
+      className="relative isolate overflow-hidden bg-crema pt-28 pb-16 md:pt-32 md:pb-20"
     >
       <ContourLines className="top-[-30%] left-[-20%] h-[140%] w-[90%]" />
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-6">
-          <div className="pb-4 lg:pb-20">
+          <div>
             <Kicker>{hero.kicker}</Kicker>
             <h1
               id="hero-heading"
@@ -45,7 +45,7 @@ export function Hero({ dictionary }: { dictionary: Dictionary }) {
               {hero.cropin}
             </p>
           </div>
-          <LandscapeIllustration className="self-end" />
+          <LandscapeIllustration className="overflow-hidden rounded-[var(--radius-card)]" />
         </div>
       </Container>
     </section>

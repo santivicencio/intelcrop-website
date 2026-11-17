@@ -39,27 +39,6 @@
     "ctaSecondary": "See how it works",
     "cropin": "Official CROPIN representative in Ecuador and LATAM"
   },
-  "stats": {
-    "label": "InteliCrop in numbers",
-    "items": [
-      {
-        "value": "200+",
-        "label": "satellites"
-      },
-      {
-        "value": "170+",
-        "label": "crops with ML models"
-      },
-      {
-        "value": "3×3 m",
-        "label": "resolution per image"
-      },
-      {
-        "value": "24–72 h",
-        "label": "Agroclimatic Score"
-      }
-    ]
-  },
   "problem": {
     "kicker": "Context",
     "heading": "The problems facing agriculture",
